@@ -4,7 +4,7 @@ namespace BioVet_Technology
 {
     public static class Navegacion
     {
-        public static void Abrir(Form nuevoFormulario, Form padre)
+        public static void Abrir(System.Windows.Forms.Form nuevoFormulario, System.Windows.Forms.Form padre)
         {
             if (padre != null)
             {

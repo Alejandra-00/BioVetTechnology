@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace BioVet_Technology
 {
-    public partial class FormIngresar : Form
+    public partial class FormIngresar : System.Windows.Forms.Form
     {
         public FormIngresar()
         {
@@ -70,6 +70,27 @@ namespace BioVet_Technology
             FormEstudio estudio = new FormEstudio();
 
             estudio.ShowDialog(this);
+        }
+
+        private void administrarPacientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPacientes paciente = new FormPacientes();
+
+            paciente.ShowDialog(this);
+        }
+
+        private void administrarTutoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormTutores tutor = new FormTutores();
+
+            tutor.ShowDialog(this);
+        }
+
+        private void administrarVeterinariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormVeterinarios veterinario = new FormVeterinarios();
+
+            veterinario.ShowDialog(this);
         }
 
         private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)

@@ -98,6 +98,7 @@
             administrarPacientesToolStripMenuItem.Name = "administrarPacientesToolStripMenuItem";
             administrarPacientesToolStripMenuItem.Size = new Size(619, 54);
             administrarPacientesToolStripMenuItem.Text = "Administrar pacientes";
+            administrarPacientesToolStripMenuItem.Click += administrarPacientesToolStripMenuItem_Click;
             // 
             // cargarTutorToolStripMenuItem
             // 
@@ -116,6 +117,7 @@
             administrarTutoresToolStripMenuItem.Name = "administrarTutoresToolStripMenuItem";
             administrarTutoresToolStripMenuItem.Size = new Size(568, 54);
             administrarTutoresToolStripMenuItem.Text = "Administrar tutores";
+            administrarTutoresToolStripMenuItem.Click += administrarTutoresToolStripMenuItem_Click;
             // 
             // cargarToolStripMenuItem
             // 
@@ -134,6 +136,7 @@
             administrarVeterinariosToolStripMenuItem.Name = "administrarVeterinariosToolStripMenuItem";
             administrarVeterinariosToolStripMenuItem.Size = new Size(669, 54);
             administrarVeterinariosToolStripMenuItem.Text = "Administrar veterinarios";
+            administrarVeterinariosToolStripMenuItem.Click += administrarVeterinariosToolStripMenuItem_Click;
             // 
             // informesToolStripMenuItem
             // 

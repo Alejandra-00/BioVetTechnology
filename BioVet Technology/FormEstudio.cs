@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace BioVet_Technology
 {
-    public partial class FormEstudio : Form
+    public partial class FormEstudio : System.Windows.Forms.Form
     {
         public FormEstudio()
         {
@@ -16,7 +16,7 @@ namespace BioVet_Technology
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void buttonCerrar_Click(object sender, EventArgs e)
+        private void buttonCerrarEstudios_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -40,11 +40,6 @@ namespace BioVet_Technology
                     e.Cancel = true; // Cancela el cierre si elige "No"
                 }
             }
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
