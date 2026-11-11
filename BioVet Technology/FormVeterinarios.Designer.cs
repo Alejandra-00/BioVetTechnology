@@ -30,7 +30,6 @@
         {
             panelDeco = new Panel();
             buttonCerrarVeterinarios = new Button();
-            buttonCerrarEstudios = new Button();
             groupBox1 = new GroupBox();
             buttonAceptar = new Button();
             buttonCancelar = new Button();
@@ -62,7 +61,6 @@
             panelDeco.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panelDeco.BackColor = Color.MidnightBlue;
             panelDeco.Controls.Add(buttonCerrarVeterinarios);
-            panelDeco.Controls.Add(buttonCerrarEstudios);
             panelDeco.Location = new Point(0, 1);
             panelDeco.Name = "panelDeco";
             panelDeco.Size = new Size(1817, 78);
@@ -83,21 +81,6 @@
             buttonCerrarVeterinarios.Text = "X";
             buttonCerrarVeterinarios.UseVisualStyleBackColor = false;
             buttonCerrarVeterinarios.Click += buttonCerrarVeterinarios_Click;
-            // 
-            // buttonCerrarEstudios
-            // 
-            buttonCerrarEstudios.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonCerrarEstudios.AutoSize = true;
-            buttonCerrarEstudios.BackColor = Color.Transparent;
-            buttonCerrarEstudios.FlatStyle = FlatStyle.Flat;
-            buttonCerrarEstudios.Font = new Font("Arial Black", 12F, FontStyle.Bold);
-            buttonCerrarEstudios.ForeColor = Color.White;
-            buttonCerrarEstudios.Location = new Point(3366, 11);
-            buttonCerrarEstudios.Name = "buttonCerrarEstudios";
-            buttonCerrarEstudios.Size = new Size(57, 58);
-            buttonCerrarEstudios.TabIndex = 11;
-            buttonCerrarEstudios.Text = "X";
-            buttonCerrarEstudios.UseVisualStyleBackColor = false;
             // 
             // groupBox1
             // 
@@ -352,7 +335,6 @@
         #endregion
 
         private Panel panelDeco;
-        private Button buttonCerrarEstudios;
         private Button buttonCerrarVeterinarios;
         private GroupBox groupBox1;
         private Button buttonAceptar;

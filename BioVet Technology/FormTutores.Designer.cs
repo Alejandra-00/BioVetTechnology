@@ -35,7 +35,6 @@
             buttonBuscarTutores = new Button();
             panelDeco = new Panel();
             buttonCerrarTutores = new Button();
-            buttonCerrarPacientes = new Button();
             buttonCerrar = new Button();
             groupBox1 = new GroupBox();
             buttonAceptar = new Button();
@@ -115,7 +114,6 @@
             panelDeco.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panelDeco.BackColor = Color.MidnightBlue;
             panelDeco.Controls.Add(buttonCerrarTutores);
-            panelDeco.Controls.Add(buttonCerrarPacientes);
             panelDeco.Controls.Add(buttonCerrar);
             panelDeco.Location = new Point(1, 1);
             panelDeco.Name = "panelDeco";
@@ -137,21 +135,6 @@
             buttonCerrarTutores.Text = "X";
             buttonCerrarTutores.UseVisualStyleBackColor = false;
             buttonCerrarTutores.Click += buttonCerrarTutores_Click;
-            // 
-            // buttonCerrarPacientes
-            // 
-            buttonCerrarPacientes.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonCerrarPacientes.AutoSize = true;
-            buttonCerrarPacientes.BackColor = Color.Transparent;
-            buttonCerrarPacientes.FlatStyle = FlatStyle.Flat;
-            buttonCerrarPacientes.Font = new Font("Arial Black", 12F, FontStyle.Bold);
-            buttonCerrarPacientes.ForeColor = Color.White;
-            buttonCerrarPacientes.Location = new Point(3367, 11);
-            buttonCerrarPacientes.Name = "buttonCerrarPacientes";
-            buttonCerrarPacientes.Size = new Size(57, 58);
-            buttonCerrarPacientes.TabIndex = 25;
-            buttonCerrarPacientes.Text = "X";
-            buttonCerrarPacientes.UseVisualStyleBackColor = false;
             // 
             // buttonCerrar
             // 
@@ -374,7 +357,6 @@
         private Button buttonBuscar;
         private Panel panelBuscar;
         private Panel panelDeco;
-        private Button buttonCerrarPacientes;
         private Button buttonCerrar;
         private Button buttonCerrarTutores;
         private Button buttonBuscarTutores;
