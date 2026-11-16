@@ -16,11 +16,6 @@ namespace BioVet_Technology
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void buttonCerrarEstudios_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void FormEstudio_FormClosing(object sender, FormClosingEventArgs e)
         {
             // Evalúa si el intento de cierre fue iniciado directamente por el usuario
@@ -40,6 +35,11 @@ namespace BioVet_Technology
                     e.Cancel = true; // Cancela el cierre si elige "No"
                 }
             }
+        }
+
+        private void buttonCerrarEstudio_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
