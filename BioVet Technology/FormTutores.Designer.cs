@@ -35,8 +35,7 @@
             buttonBuscarTutores = new Button();
             panelDeco = new Panel();
             buttonCerrarTutores = new Button();
-            buttonCerrar = new Button();
-            groupBox1 = new GroupBox();
+            groupBoxAcepCan = new GroupBox();
             buttonAceptar = new Button();
             buttonCancelar = new Button();
             label_Mail = new Label();
@@ -48,13 +47,14 @@
             label_IdTutor = new Label();
             textBox_NombreTutor = new TextBox();
             textBox_IdTutor = new TextBox();
-            groupBox = new GroupBox();
+            groupBoxAcciones = new GroupBox();
+            buttonImprimir = new Button();
             buttonAgregar = new Button();
             buttonModificar = new Button();
             panelBuscar.SuspendLayout();
             panelDeco.SuspendLayout();
-            groupBox1.SuspendLayout();
-            groupBox.SuspendLayout();
+            groupBoxAcepCan.SuspendLayout();
+            groupBoxAcciones.SuspendLayout();
             SuspendLayout();
             // 
             // listBox_SelectTutores
@@ -114,7 +114,6 @@
             panelDeco.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panelDeco.BackColor = Color.MidnightBlue;
             panelDeco.Controls.Add(buttonCerrarTutores);
-            panelDeco.Controls.Add(buttonCerrar);
             panelDeco.Location = new Point(1, 1);
             panelDeco.Name = "panelDeco";
             panelDeco.Size = new Size(1817, 78);
@@ -136,32 +135,17 @@
             buttonCerrarTutores.UseVisualStyleBackColor = false;
             buttonCerrarTutores.Click += buttonCerrarTutores_Click;
             // 
-            // buttonCerrar
+            // groupBoxAcepCan
             // 
-            buttonCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonCerrar.AutoSize = true;
-            buttonCerrar.BackColor = Color.Transparent;
-            buttonCerrar.FlatStyle = FlatStyle.Flat;
-            buttonCerrar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
-            buttonCerrar.ForeColor = Color.White;
-            buttonCerrar.Location = new Point(4983, 11);
-            buttonCerrar.Name = "buttonCerrar";
-            buttonCerrar.Size = new Size(57, 58);
-            buttonCerrar.TabIndex = 11;
-            buttonCerrar.Text = "X";
-            buttonCerrar.UseVisualStyleBackColor = false;
-            // 
-            // groupBox1
-            // 
-            groupBox1.AutoSize = true;
-            groupBox1.Controls.Add(buttonAceptar);
-            groupBox1.Controls.Add(buttonCancelar);
-            groupBox1.Enabled = false;
-            groupBox1.Location = new Point(690, 844);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(496, 130);
-            groupBox1.TabIndex = 71;
-            groupBox1.TabStop = false;
+            groupBoxAcepCan.AutoSize = true;
+            groupBoxAcepCan.Controls.Add(buttonAceptar);
+            groupBoxAcepCan.Controls.Add(buttonCancelar);
+            groupBoxAcepCan.Enabled = false;
+            groupBoxAcepCan.Location = new Point(690, 844);
+            groupBoxAcepCan.Name = "groupBoxAcepCan";
+            groupBoxAcepCan.Size = new Size(496, 130);
+            groupBoxAcepCan.TabIndex = 71;
+            groupBoxAcepCan.TabStop = false;
             // 
             // buttonAceptar
             // 
@@ -279,17 +263,31 @@
             textBox_IdTutor.Size = new Size(1227, 58);
             textBox_IdTutor.TabIndex = 62;
             // 
-            // groupBox
+            // groupBoxAcciones
             // 
-            groupBox.AutoSize = true;
-            groupBox.Controls.Add(buttonAgregar);
-            groupBox.Controls.Add(buttonModificar);
-            groupBox.Enabled = false;
-            groupBox.Location = new Point(12, 396);
-            groupBox.Name = "groupBox";
-            groupBox.Size = new Size(250, 199);
-            groupBox.TabIndex = 61;
-            groupBox.TabStop = false;
+            groupBoxAcciones.AutoSize = true;
+            groupBoxAcciones.Controls.Add(buttonImprimir);
+            groupBoxAcciones.Controls.Add(buttonAgregar);
+            groupBoxAcciones.Controls.Add(buttonModificar);
+            groupBoxAcciones.Enabled = false;
+            groupBoxAcciones.Location = new Point(1, 396);
+            groupBoxAcciones.Name = "groupBoxAcciones";
+            groupBoxAcciones.Size = new Size(250, 263);
+            groupBoxAcciones.TabIndex = 26;
+            groupBoxAcciones.TabStop = false;
+            // 
+            // buttonImprimir
+            // 
+            buttonImprimir.BackColor = Color.MidnightBlue;
+            buttonImprimir.Enabled = false;
+            buttonImprimir.Font = new Font("Arial Black", 12F, FontStyle.Bold);
+            buttonImprimir.ForeColor = Color.White;
+            buttonImprimir.Location = new Point(6, 167);
+            buttonImprimir.Name = "buttonImprimir";
+            buttonImprimir.Size = new Size(232, 58);
+            buttonImprimir.TabIndex = 24;
+            buttonImprimir.Text = "IMPRIMIR";
+            buttonImprimir.UseVisualStyleBackColor = false;
             // 
             // buttonAgregar
             // 
@@ -322,7 +320,8 @@
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1819, 1292);
-            Controls.Add(groupBox1);
+            Controls.Add(groupBoxAcciones);
+            Controls.Add(groupBoxAcepCan);
             Controls.Add(label_Mail);
             Controls.Add(textBox_Mail);
             Controls.Add(label_Telefono);
@@ -332,7 +331,6 @@
             Controls.Add(label_IdTutor);
             Controls.Add(textBox_NombreTutor);
             Controls.Add(textBox_IdTutor);
-            Controls.Add(groupBox);
             Controls.Add(listBox_SelectTutores);
             Controls.Add(textBox_BuscarTutor);
             Controls.Add(panelBuscar);
@@ -344,8 +342,8 @@
             panelBuscar.ResumeLayout(false);
             panelDeco.ResumeLayout(false);
             panelDeco.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox.ResumeLayout(false);
+            groupBoxAcepCan.ResumeLayout(false);
+            groupBoxAcciones.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -357,10 +355,9 @@
         private Button buttonBuscar;
         private Panel panelBuscar;
         private Panel panelDeco;
-        private Button buttonCerrar;
         private Button buttonCerrarTutores;
         private Button buttonBuscarTutores;
-        private GroupBox groupBox1;
+        private GroupBox groupBoxAcepCan;
         private Button buttonAceptar;
         private Button buttonCancelar;
         private Label label_Mail;
@@ -372,7 +369,8 @@
         private Label label_IdTutor;
         private TextBox textBox_NombreTutor;
         private TextBox textBox_IdTutor;
-        private GroupBox groupBox;
+        private GroupBox groupBoxAcciones;
+        private Button buttonImprimir;
         private Button buttonAgregar;
         private Button buttonModificar;
     }

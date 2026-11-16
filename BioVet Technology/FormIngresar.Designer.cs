@@ -155,6 +155,7 @@
             administrarInformesToolStripMenuItem.Name = "administrarInformesToolStripMenuItem";
             administrarInformesToolStripMenuItem.Size = new Size(602, 54);
             administrarInformesToolStripMenuItem.Text = "Administrar informes";
+            administrarInformesToolStripMenuItem.Click += administrarInformesToolStripMenuItem_Click;
             // 
             // cerrarToolStripMenuItem
             // 

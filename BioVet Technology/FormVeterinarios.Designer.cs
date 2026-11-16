@@ -30,7 +30,7 @@
         {
             panelDeco = new Panel();
             buttonCerrarVeterinarios = new Button();
-            groupBox1 = new GroupBox();
+            groupBoxAcepCan = new GroupBox();
             buttonAceptar = new Button();
             buttonCancelar = new Button();
             textBox_Mail = new TextBox();
@@ -39,9 +39,6 @@
             label_IdEstudio = new Label();
             textBox_NombreVeterinario = new TextBox();
             textBox_IdVeterinario = new TextBox();
-            groupBox = new GroupBox();
-            buttonAgregar = new Button();
-            buttonModificar = new Button();
             listBox_SelectVeterinarios = new ListBox();
             textBox_BuscarVeterinarios = new TextBox();
             panelBuscar = new Panel();
@@ -50,10 +47,14 @@
             label_Telefono = new Label();
             label_Mail = new Label();
             checkBox_VeterinarioActivo = new CheckBox();
+            groupBoxAcciones = new GroupBox();
+            buttonImprimir = new Button();
+            buttonAgregar = new Button();
+            buttonModificar = new Button();
             panelDeco.SuspendLayout();
-            groupBox1.SuspendLayout();
-            groupBox.SuspendLayout();
+            groupBoxAcepCan.SuspendLayout();
             panelBuscar.SuspendLayout();
+            groupBoxAcciones.SuspendLayout();
             SuspendLayout();
             // 
             // panelDeco
@@ -82,17 +83,17 @@
             buttonCerrarVeterinarios.UseVisualStyleBackColor = false;
             buttonCerrarVeterinarios.Click += buttonCerrarVeterinarios_Click;
             // 
-            // groupBox1
+            // groupBoxAcepCan
             // 
-            groupBox1.AutoSize = true;
-            groupBox1.Controls.Add(buttonAceptar);
-            groupBox1.Controls.Add(buttonCancelar);
-            groupBox1.Enabled = false;
-            groupBox1.Location = new Point(689, 845);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(496, 130);
-            groupBox1.TabIndex = 60;
-            groupBox1.TabStop = false;
+            groupBoxAcepCan.AutoSize = true;
+            groupBoxAcepCan.Controls.Add(buttonAceptar);
+            groupBoxAcepCan.Controls.Add(buttonCancelar);
+            groupBoxAcepCan.Enabled = false;
+            groupBoxAcepCan.Location = new Point(689, 845);
+            groupBoxAcepCan.Name = "groupBoxAcepCan";
+            groupBoxAcepCan.Size = new Size(496, 130);
+            groupBoxAcepCan.TabIndex = 60;
+            groupBoxAcepCan.TabStop = false;
             // 
             // buttonAceptar
             // 
@@ -175,43 +176,6 @@
             textBox_IdVeterinario.Name = "textBox_IdVeterinario";
             textBox_IdVeterinario.Size = new Size(1227, 58);
             textBox_IdVeterinario.TabIndex = 47;
-            // 
-            // groupBox
-            // 
-            groupBox.AutoSize = true;
-            groupBox.Controls.Add(buttonAgregar);
-            groupBox.Controls.Add(buttonModificar);
-            groupBox.Enabled = false;
-            groupBox.Location = new Point(11, 397);
-            groupBox.Name = "groupBox";
-            groupBox.Size = new Size(250, 199);
-            groupBox.TabIndex = 46;
-            groupBox.TabStop = false;
-            // 
-            // buttonAgregar
-            // 
-            buttonAgregar.BackColor = Color.MidnightBlue;
-            buttonAgregar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
-            buttonAgregar.ForeColor = Color.White;
-            buttonAgregar.Location = new Point(6, 39);
-            buttonAgregar.Name = "buttonAgregar";
-            buttonAgregar.Size = new Size(232, 58);
-            buttonAgregar.TabIndex = 0;
-            buttonAgregar.Text = "AGREGAR";
-            buttonAgregar.UseVisualStyleBackColor = false;
-            // 
-            // buttonModificar
-            // 
-            buttonModificar.BackColor = Color.MidnightBlue;
-            buttonModificar.Enabled = false;
-            buttonModificar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
-            buttonModificar.ForeColor = Color.White;
-            buttonModificar.Location = new Point(6, 103);
-            buttonModificar.Name = "buttonModificar";
-            buttonModificar.Size = new Size(232, 58);
-            buttonModificar.TabIndex = 23;
-            buttonModificar.Text = "MODIFICAR";
-            buttonModificar.UseVisualStyleBackColor = false;
             // 
             // listBox_SelectVeterinarios
             // 
@@ -298,22 +262,74 @@
             checkBox_VeterinarioActivo.Text = "Activo";
             checkBox_VeterinarioActivo.UseVisualStyleBackColor = true;
             // 
+            // groupBoxAcciones
+            // 
+            groupBoxAcciones.AutoSize = true;
+            groupBoxAcciones.Controls.Add(buttonImprimir);
+            groupBoxAcciones.Controls.Add(buttonAgregar);
+            groupBoxAcciones.Controls.Add(buttonModificar);
+            groupBoxAcciones.Enabled = false;
+            groupBoxAcciones.Location = new Point(12, 397);
+            groupBoxAcciones.Name = "groupBoxAcciones";
+            groupBoxAcciones.Size = new Size(250, 263);
+            groupBoxAcciones.TabIndex = 64;
+            groupBoxAcciones.TabStop = false;
+            // 
+            // buttonImprimir
+            // 
+            buttonImprimir.BackColor = Color.MidnightBlue;
+            buttonImprimir.Enabled = false;
+            buttonImprimir.Font = new Font("Arial Black", 12F, FontStyle.Bold);
+            buttonImprimir.ForeColor = Color.White;
+            buttonImprimir.Location = new Point(6, 167);
+            buttonImprimir.Name = "buttonImprimir";
+            buttonImprimir.Size = new Size(232, 58);
+            buttonImprimir.TabIndex = 24;
+            buttonImprimir.Text = "IMPRIMIR";
+            buttonImprimir.UseVisualStyleBackColor = false;
+            // 
+            // buttonAgregar
+            // 
+            buttonAgregar.BackColor = Color.MidnightBlue;
+            buttonAgregar.Enabled = false;
+            buttonAgregar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
+            buttonAgregar.ForeColor = Color.White;
+            buttonAgregar.Location = new Point(6, 39);
+            buttonAgregar.Name = "buttonAgregar";
+            buttonAgregar.Size = new Size(232, 58);
+            buttonAgregar.TabIndex = 0;
+            buttonAgregar.Text = "AGREGAR";
+            buttonAgregar.UseVisualStyleBackColor = false;
+            // 
+            // buttonModificar
+            // 
+            buttonModificar.BackColor = Color.MidnightBlue;
+            buttonModificar.Enabled = false;
+            buttonModificar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
+            buttonModificar.ForeColor = Color.White;
+            buttonModificar.Location = new Point(6, 103);
+            buttonModificar.Name = "buttonModificar";
+            buttonModificar.Size = new Size(232, 58);
+            buttonModificar.TabIndex = 23;
+            buttonModificar.Text = "MODIFICAR";
+            buttonModificar.UseVisualStyleBackColor = false;
+            // 
             // FormVeterinarios
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1819, 1292);
+            Controls.Add(groupBoxAcciones);
             Controls.Add(checkBox_VeterinarioActivo);
             Controls.Add(label_Mail);
             Controls.Add(label_Telefono);
-            Controls.Add(groupBox1);
+            Controls.Add(groupBoxAcepCan);
             Controls.Add(textBox_Mail);
             Controls.Add(textBox_Telefono);
             Controls.Add(label_NombreEstudio);
             Controls.Add(label_IdEstudio);
             Controls.Add(textBox_NombreVeterinario);
             Controls.Add(textBox_IdVeterinario);
-            Controls.Add(groupBox);
             Controls.Add(listBox_SelectVeterinarios);
             Controls.Add(textBox_BuscarVeterinarios);
             Controls.Add(panelBuscar);
@@ -325,9 +341,9 @@
             FormClosing += FormVeterinarios_FormClosing;
             panelDeco.ResumeLayout(false);
             panelDeco.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox.ResumeLayout(false);
+            groupBoxAcepCan.ResumeLayout(false);
             panelBuscar.ResumeLayout(false);
+            groupBoxAcciones.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -336,7 +352,7 @@
 
         private Panel panelDeco;
         private Button buttonCerrarVeterinarios;
-        private GroupBox groupBox1;
+        private GroupBox groupBoxAcepCan;
         private Button buttonAceptar;
         private Button buttonCancelar;
         private Label label_Nacimiento;
@@ -352,9 +368,6 @@
         private Label label_IdEstudio;
         private TextBox textBox_NombreVeterinario;
         private TextBox textBox_IdVeterinario;
-        private GroupBox groupBox;
-        private Button buttonAgregar;
-        private Button buttonModificar;
         private ListBox listBox_SelectVeterinarios;
         private TextBox textBox_BuscarVeterinarios;
         private Panel panelBuscar;
@@ -363,5 +376,9 @@
         private Label label_Mail;
         private CheckBox checkBox_VeterinarioActivo;
         private Button buttonBuscarVeterinario;
+        private GroupBox groupBoxAcciones;
+        private Button buttonImprimir;
+        private Button buttonAgregar;
+        private Button buttonModificar;
     }
 }

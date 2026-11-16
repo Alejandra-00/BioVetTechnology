@@ -35,9 +35,6 @@
             buttonBuscarPaciente = new Button();
             textBox_BuscarPacientes = new TextBox();
             listBox_SelectPacientes = new ListBox();
-            groupBox = new GroupBox();
-            buttonAgregar = new Button();
-            buttonModificar = new Button();
             checkBox_PacienteActivo = new CheckBox();
             label_NombrePaciente = new Label();
             label_IdPaciente = new Label();
@@ -51,13 +48,17 @@
             textBox_Sexo = new TextBox();
             label_Nacimiento = new Label();
             textBox_Nacimiento = new TextBox();
-            groupBox1 = new GroupBox();
+            groupBoxAcepCan = new GroupBox();
             buttonAceptar = new Button();
             buttonCancelar = new Button();
+            groupBoxAcciones = new GroupBox();
+            buttonImprimir = new Button();
+            buttonAgregar = new Button();
+            buttonModificar = new Button();
             panelDeco.SuspendLayout();
             panelBuscar.SuspendLayout();
-            groupBox.SuspendLayout();
-            groupBox1.SuspendLayout();
+            groupBoxAcepCan.SuspendLayout();
+            groupBoxAcciones.SuspendLayout();
             SuspendLayout();
             // 
             // buttonCerrar
@@ -139,43 +140,6 @@
             listBox_SelectPacientes.Name = "listBox_SelectPacientes";
             listBox_SelectPacientes.Size = new Size(949, 164);
             listBox_SelectPacientes.TabIndex = 27;
-            // 
-            // groupBox
-            // 
-            groupBox.AutoSize = true;
-            groupBox.Controls.Add(buttonAgregar);
-            groupBox.Controls.Add(buttonModificar);
-            groupBox.Enabled = false;
-            groupBox.Location = new Point(12, 396);
-            groupBox.Name = "groupBox";
-            groupBox.Size = new Size(250, 199);
-            groupBox.TabIndex = 28;
-            groupBox.TabStop = false;
-            // 
-            // buttonAgregar
-            // 
-            buttonAgregar.BackColor = Color.MidnightBlue;
-            buttonAgregar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
-            buttonAgregar.ForeColor = Color.White;
-            buttonAgregar.Location = new Point(6, 39);
-            buttonAgregar.Name = "buttonAgregar";
-            buttonAgregar.Size = new Size(232, 58);
-            buttonAgregar.TabIndex = 0;
-            buttonAgregar.Text = "AGREGAR";
-            buttonAgregar.UseVisualStyleBackColor = false;
-            // 
-            // buttonModificar
-            // 
-            buttonModificar.BackColor = Color.MidnightBlue;
-            buttonModificar.Enabled = false;
-            buttonModificar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
-            buttonModificar.ForeColor = Color.White;
-            buttonModificar.Location = new Point(6, 103);
-            buttonModificar.Name = "buttonModificar";
-            buttonModificar.Size = new Size(232, 58);
-            buttonModificar.TabIndex = 23;
-            buttonModificar.Text = "MODIFICAR";
-            buttonModificar.UseVisualStyleBackColor = false;
             // 
             // checkBox_PacienteActivo
             // 
@@ -309,17 +273,17 @@
             textBox_Nacimiento.Size = new Size(1227, 57);
             textBox_Nacimiento.TabIndex = 40;
             // 
-            // groupBox1
+            // groupBoxAcepCan
             // 
-            groupBox1.AutoSize = true;
-            groupBox1.Controls.Add(buttonAceptar);
-            groupBox1.Controls.Add(buttonCancelar);
-            groupBox1.Enabled = false;
-            groupBox1.Location = new Point(699, 1042);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(496, 130);
-            groupBox1.TabIndex = 42;
-            groupBox1.TabStop = false;
+            groupBoxAcepCan.AutoSize = true;
+            groupBoxAcepCan.Controls.Add(buttonAceptar);
+            groupBoxAcepCan.Controls.Add(buttonCancelar);
+            groupBoxAcepCan.Enabled = false;
+            groupBoxAcepCan.Location = new Point(699, 1042);
+            groupBoxAcepCan.Name = "groupBoxAcepCan";
+            groupBoxAcepCan.Size = new Size(496, 130);
+            groupBoxAcepCan.TabIndex = 42;
+            groupBoxAcepCan.TabStop = false;
             // 
             // buttonAceptar
             // 
@@ -345,12 +309,65 @@
             buttonCancelar.Text = "CANCELAR";
             buttonCancelar.UseVisualStyleBackColor = false;
             // 
+            // groupBoxAcciones
+            // 
+            groupBoxAcciones.AutoSize = true;
+            groupBoxAcciones.Controls.Add(buttonImprimir);
+            groupBoxAcciones.Controls.Add(buttonAgregar);
+            groupBoxAcciones.Controls.Add(buttonModificar);
+            groupBoxAcciones.Enabled = false;
+            groupBoxAcciones.Location = new Point(12, 396);
+            groupBoxAcciones.Name = "groupBoxAcciones";
+            groupBoxAcciones.Size = new Size(250, 263);
+            groupBoxAcciones.TabIndex = 43;
+            groupBoxAcciones.TabStop = false;
+            // 
+            // buttonImprimir
+            // 
+            buttonImprimir.BackColor = Color.MidnightBlue;
+            buttonImprimir.Enabled = false;
+            buttonImprimir.Font = new Font("Arial Black", 12F, FontStyle.Bold);
+            buttonImprimir.ForeColor = Color.White;
+            buttonImprimir.Location = new Point(6, 167);
+            buttonImprimir.Name = "buttonImprimir";
+            buttonImprimir.Size = new Size(232, 58);
+            buttonImprimir.TabIndex = 24;
+            buttonImprimir.Text = "IMPRIMIR";
+            buttonImprimir.UseVisualStyleBackColor = false;
+            // 
+            // buttonAgregar
+            // 
+            buttonAgregar.BackColor = Color.MidnightBlue;
+            buttonAgregar.Enabled = false;
+            buttonAgregar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
+            buttonAgregar.ForeColor = Color.White;
+            buttonAgregar.Location = new Point(6, 39);
+            buttonAgregar.Name = "buttonAgregar";
+            buttonAgregar.Size = new Size(232, 58);
+            buttonAgregar.TabIndex = 0;
+            buttonAgregar.Text = "AGREGAR";
+            buttonAgregar.UseVisualStyleBackColor = false;
+            // 
+            // buttonModificar
+            // 
+            buttonModificar.BackColor = Color.MidnightBlue;
+            buttonModificar.Enabled = false;
+            buttonModificar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
+            buttonModificar.ForeColor = Color.White;
+            buttonModificar.Location = new Point(6, 103);
+            buttonModificar.Name = "buttonModificar";
+            buttonModificar.Size = new Size(232, 58);
+            buttonModificar.TabIndex = 23;
+            buttonModificar.Text = "MODIFICAR";
+            buttonModificar.UseVisualStyleBackColor = false;
+            // 
             // FormPacientes
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1819, 1292);
-            Controls.Add(groupBox1);
+            Controls.Add(groupBoxAcciones);
+            Controls.Add(groupBoxAcepCan);
             Controls.Add(label_Nacimiento);
             Controls.Add(textBox_Nacimiento);
             Controls.Add(label_Sexo);
@@ -364,7 +381,6 @@
             Controls.Add(label_IdPaciente);
             Controls.Add(textBox_NombrePaciente);
             Controls.Add(textBox_IdPaciente);
-            Controls.Add(groupBox);
             Controls.Add(listBox_SelectPacientes);
             Controls.Add(textBox_BuscarPacientes);
             Controls.Add(panelBuscar);
@@ -376,8 +392,8 @@
             panelDeco.ResumeLayout(false);
             panelDeco.PerformLayout();
             panelBuscar.ResumeLayout(false);
-            groupBox.ResumeLayout(false);
-            groupBox1.ResumeLayout(false);
+            groupBoxAcepCan.ResumeLayout(false);
+            groupBoxAcciones.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -391,8 +407,6 @@
         private ListBox listBox_SelectPacientes;
         private Button buttonBuscarPaciente;
         private GroupBox groupBox;
-        private Button buttonAgregar;
-        private Button buttonModificar;
         private CheckBox checkBox_PacienteActivo;
         private Label label_NombrePaciente;
         private Label label_IdPaciente;
@@ -406,8 +420,12 @@
         private TextBox textBox_Sexo;
         private Label label_Nacimiento;
         private TextBox textBox_Nacimiento;
-        private GroupBox groupBox1;
+        private GroupBox groupBoxAcepCan;
         private Button buttonAceptar;
         private Button buttonCancelar;
+        private GroupBox groupBoxAcciones;
+        private Button buttonImprimir;
+        private Button buttonAgregar;
+        private Button buttonModificar;
     }
 }

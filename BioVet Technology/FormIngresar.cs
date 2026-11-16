@@ -93,6 +93,13 @@ namespace BioVet_Technology
             veterinario.ShowDialog(this);
         }
 
+        private void administrarInformesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormInformes informe = new FormInformes();
+
+            informe.ShowDialog(this);
+        }
+
         private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();

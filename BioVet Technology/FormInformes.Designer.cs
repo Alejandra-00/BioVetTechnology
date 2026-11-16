@@ -35,6 +35,7 @@
             buttonAgregar = new Button();
             buttonModificar = new Button();
             groupBoxAcciones = new GroupBox();
+            buttonImprimir = new Button();
             label_FechaHora = new Label();
             dateTimePickerFechaHora = new DateTimePicker();
             comboBoxEstudio = new ComboBox();
@@ -51,6 +52,7 @@
             groupBoxAcepCan = new GroupBox();
             buttonAceptar = new Button();
             buttonCancelar = new Button();
+            printDocumentInforme = new System.Drawing.Printing.PrintDocument();
             panelBuscar.SuspendLayout();
             panelDeco.SuspendLayout();
             groupBoxAcciones.SuspendLayout();
@@ -129,14 +131,28 @@
             // groupBoxAcciones
             // 
             groupBoxAcciones.AutoSize = true;
+            groupBoxAcciones.Controls.Add(buttonImprimir);
             groupBoxAcciones.Controls.Add(buttonAgregar);
             groupBoxAcciones.Controls.Add(buttonModificar);
             groupBoxAcciones.Enabled = false;
             groupBoxAcciones.Location = new Point(12, 266);
             groupBoxAcciones.Name = "groupBoxAcciones";
-            groupBoxAcciones.Size = new Size(250, 199);
+            groupBoxAcciones.Size = new Size(250, 263);
             groupBoxAcciones.TabIndex = 25;
             groupBoxAcciones.TabStop = false;
+            // 
+            // buttonImprimir
+            // 
+            buttonImprimir.BackColor = Color.MidnightBlue;
+            buttonImprimir.Enabled = false;
+            buttonImprimir.Font = new Font("Arial Black", 12F, FontStyle.Bold);
+            buttonImprimir.ForeColor = Color.White;
+            buttonImprimir.Location = new Point(6, 167);
+            buttonImprimir.Name = "buttonImprimir";
+            buttonImprimir.Size = new Size(232, 58);
+            buttonImprimir.TabIndex = 24;
+            buttonImprimir.Text = "IMPRIMIR";
+            buttonImprimir.UseVisualStyleBackColor = false;
             // 
             // label_FechaHora
             // 
@@ -361,5 +377,7 @@
         private GroupBox groupBoxAcepCan;
         private Button buttonAceptar;
         private Button buttonCancelar;
+        private Button buttonImprimir;
+        private System.Drawing.Printing.PrintDocument printDocumentInforme;
     }
 }

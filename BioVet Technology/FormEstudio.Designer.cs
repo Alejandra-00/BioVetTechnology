@@ -29,13 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEstudio));
-            buttonAgregar = new Button();
             panelDeco = new Panel();
             buttonCerrarEstudio = new Button();
             panelBuscar = new Panel();
             comboBoxSelectEstudio = new ComboBox();
-            buttonModificar = new Button();
-            groupBox = new GroupBox();
             textBox_IdEstudio = new TextBox();
             label_IdEstudio = new Label();
             label_NombreEstudio = new Label();
@@ -78,9 +75,12 @@
             label_IdAnalito = new Label();
             tabControlEstudio = new TabControl();
             textBox_NombreEstudio = new TextBox();
+            groupBoxAcciones = new GroupBox();
+            buttonImprimir = new Button();
+            buttonAgregar = new Button();
+            buttonModificar = new Button();
             panelDeco.SuspendLayout();
             panelBuscar.SuspendLayout();
-            groupBox.SuspendLayout();
             tabPageModificar.SuspendLayout();
             groupBox2.SuspendLayout();
             tabPage_AgregarAnalitos.SuspendLayout();
@@ -88,20 +88,8 @@
             tabPage_Analitos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_VerAnalitos).BeginInit();
             tabControlEstudio.SuspendLayout();
+            groupBoxAcciones.SuspendLayout();
             SuspendLayout();
-            // 
-            // buttonAgregar
-            // 
-            buttonAgregar.BackColor = Color.MidnightBlue;
-            buttonAgregar.Enabled = false;
-            buttonAgregar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
-            buttonAgregar.ForeColor = Color.White;
-            buttonAgregar.Location = new Point(6, 39);
-            buttonAgregar.Name = "buttonAgregar";
-            buttonAgregar.Size = new Size(232, 58);
-            buttonAgregar.TabIndex = 0;
-            buttonAgregar.Text = "AGREGAR";
-            buttonAgregar.UseVisualStyleBackColor = false;
             // 
             // panelDeco
             // 
@@ -145,31 +133,6 @@
             comboBoxSelectEstudio.Name = "comboBoxSelectEstudio";
             comboBoxSelectEstudio.Size = new Size(1292, 40);
             comboBoxSelectEstudio.TabIndex = 28;
-            // 
-            // buttonModificar
-            // 
-            buttonModificar.BackColor = Color.MidnightBlue;
-            buttonModificar.Enabled = false;
-            buttonModificar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
-            buttonModificar.ForeColor = Color.White;
-            buttonModificar.Location = new Point(6, 103);
-            buttonModificar.Name = "buttonModificar";
-            buttonModificar.Size = new Size(232, 58);
-            buttonModificar.TabIndex = 23;
-            buttonModificar.Text = "MODIFICAR";
-            buttonModificar.UseVisualStyleBackColor = false;
-            // 
-            // groupBox
-            // 
-            groupBox.AutoSize = true;
-            groupBox.Controls.Add(buttonAgregar);
-            groupBox.Controls.Add(buttonModificar);
-            groupBox.Enabled = false;
-            groupBox.Location = new Point(12, 231);
-            groupBox.Name = "groupBox";
-            groupBox.Size = new Size(250, 199);
-            groupBox.TabIndex = 24;
-            groupBox.TabStop = false;
             // 
             // textBox_IdEstudio
             // 
@@ -402,6 +365,7 @@
             // groupBox1
             // 
             groupBox1.AutoSize = true;
+            groupBox1.BackColor = Color.Transparent;
             groupBox1.Controls.Add(buttonAceptar);
             groupBox1.Controls.Add(buttonCancelar);
             groupBox1.Location = new Point(49, 408);
@@ -679,13 +643,67 @@
             textBox_NombreEstudio.Size = new Size(1227, 57);
             textBox_NombreEstudio.TabIndex = 18;
             // 
+            // groupBoxAcciones
+            // 
+            groupBoxAcciones.AutoSize = true;
+            groupBoxAcciones.BackColor = Color.White;
+            groupBoxAcciones.Controls.Add(buttonImprimir);
+            groupBoxAcciones.Controls.Add(buttonAgregar);
+            groupBoxAcciones.Controls.Add(buttonModificar);
+            groupBoxAcciones.Enabled = false;
+            groupBoxAcciones.Location = new Point(12, 240);
+            groupBoxAcciones.Name = "groupBoxAcciones";
+            groupBoxAcciones.Size = new Size(250, 263);
+            groupBoxAcciones.TabIndex = 27;
+            groupBoxAcciones.TabStop = false;
+            // 
+            // buttonImprimir
+            // 
+            buttonImprimir.BackColor = Color.MidnightBlue;
+            buttonImprimir.Enabled = false;
+            buttonImprimir.Font = new Font("Arial Black", 12F, FontStyle.Bold);
+            buttonImprimir.ForeColor = Color.White;
+            buttonImprimir.Location = new Point(6, 167);
+            buttonImprimir.Name = "buttonImprimir";
+            buttonImprimir.Size = new Size(232, 58);
+            buttonImprimir.TabIndex = 24;
+            buttonImprimir.Text = "IMPRIMIR";
+            buttonImprimir.UseVisualStyleBackColor = false;
+            // 
+            // buttonAgregar
+            // 
+            buttonAgregar.BackColor = Color.MidnightBlue;
+            buttonAgregar.Enabled = false;
+            buttonAgregar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
+            buttonAgregar.ForeColor = Color.White;
+            buttonAgregar.Location = new Point(6, 39);
+            buttonAgregar.Name = "buttonAgregar";
+            buttonAgregar.Size = new Size(232, 58);
+            buttonAgregar.TabIndex = 0;
+            buttonAgregar.Text = "AGREGAR";
+            buttonAgregar.UseVisualStyleBackColor = false;
+            // 
+            // buttonModificar
+            // 
+            buttonModificar.BackColor = Color.MidnightBlue;
+            buttonModificar.Enabled = false;
+            buttonModificar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
+            buttonModificar.ForeColor = Color.White;
+            buttonModificar.Location = new Point(6, 103);
+            buttonModificar.Name = "buttonModificar";
+            buttonModificar.Size = new Size(232, 58);
+            buttonModificar.TabIndex = 23;
+            buttonModificar.Text = "MODIFICAR";
+            buttonModificar.UseVisualStyleBackColor = false;
+            // 
             // FormEstudio
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1819, 1292);
+            Controls.Add(groupBoxAcciones);
             Controls.Add(checkBox_EstudioActivo);
-            Controls.Add(groupBox);
             Controls.Add(tabControlEstudio);
             Controls.Add(label_NombreEstudio);
             Controls.Add(label_IdEstudio);
@@ -702,7 +720,6 @@
             panelDeco.ResumeLayout(false);
             panelDeco.PerformLayout();
             panelBuscar.ResumeLayout(false);
-            groupBox.ResumeLayout(false);
             tabPageModificar.ResumeLayout(false);
             tabPageModificar.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -713,17 +730,15 @@
             tabPage_Analitos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_VerAnalitos).EndInit();
             tabControlEstudio.ResumeLayout(false);
+            groupBoxAcciones.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private Button buttonAgregar;
         private Panel panelDeco;
         private Panel panelBuscar;
         private ComboBox comboBoxSelectInformes;
-        private Button buttonModificar;
-        private GroupBox groupBox;
         private TextBox textBox_IdEstudio;
         private Label label_IdEstudio;
         private Label label_NombreEstudio;
@@ -769,5 +784,9 @@
         private CheckBox checkBox_InformeActivo;
         private Button buttonCerrarEstudio;
         private ComboBox comboBoxSelectEstudio;
+        private GroupBox groupBoxAcciones;
+        private Button buttonImprimir;
+        private Button buttonAgregar;
+        private Button buttonModificar;
     }
 }
