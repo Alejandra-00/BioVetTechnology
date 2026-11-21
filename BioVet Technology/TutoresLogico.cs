@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BioVet_Technology
 {
-    internal class EstudioLogico
+    internal class TutoresLogico
     {
     }
 }
