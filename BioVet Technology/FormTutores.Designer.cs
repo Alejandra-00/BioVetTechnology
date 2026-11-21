@@ -32,7 +32,6 @@
             textBox_BuscarTutor = new TextBox();
             buttonBuscar = new Button();
             panelBuscar = new Panel();
-            buttonBuscarTutores = new Button();
             panelDeco = new Panel();
             buttonCerrarTutores = new Button();
             groupBoxAcepCan = new GroupBox();
@@ -89,25 +88,11 @@
             // panelBuscar
             // 
             panelBuscar.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            panelBuscar.Controls.Add(buttonBuscarTutores);
             panelBuscar.Controls.Add(buttonBuscar);
             panelBuscar.Location = new Point(1, 130);
             panelBuscar.Name = "panelBuscar";
             panelBuscar.Size = new Size(1817, 260);
             panelBuscar.TabIndex = 29;
-            // 
-            // buttonBuscarTutores
-            // 
-            buttonBuscarTutores.Anchor = AnchorStyles.Top;
-            buttonBuscarTutores.BackColor = Color.MidnightBlue;
-            buttonBuscarTutores.Font = new Font("Arial Black", 12F, FontStyle.Bold);
-            buttonBuscarTutores.ForeColor = Color.White;
-            buttonBuscarTutores.Location = new Point(1423, 19);
-            buttonBuscarTutores.Name = "buttonBuscarTutores";
-            buttonBuscarTutores.Size = new Size(242, 58);
-            buttonBuscarTutores.TabIndex = 33;
-            buttonBuscarTutores.Text = "BUSCAR";
-            buttonBuscarTutores.UseVisualStyleBackColor = false;
             // 
             // panelDeco
             // 
@@ -146,6 +131,7 @@
             groupBoxAcepCan.Size = new Size(496, 130);
             groupBoxAcepCan.TabIndex = 71;
             groupBoxAcepCan.TabStop = false;
+            groupBoxAcepCan.Visible = false;
             // 
             // buttonAceptar
             // 
@@ -181,6 +167,7 @@
             label_Mail.Size = new Size(55, 27);
             label_Mail.TabIndex = 70;
             label_Mail.Text = "Mail";
+            label_Mail.Visible = false;
             // 
             // textBox_Mail
             // 
@@ -190,6 +177,7 @@
             textBox_Mail.Name = "textBox_Mail";
             textBox_Mail.Size = new Size(1227, 57);
             textBox_Mail.TabIndex = 69;
+            textBox_Mail.Visible = false;
             // 
             // label_Telefono
             // 
@@ -201,6 +189,7 @@
             label_Telefono.Size = new Size(102, 27);
             label_Telefono.TabIndex = 68;
             label_Telefono.Text = "Teléfono";
+            label_Telefono.Visible = false;
             // 
             // textBox_Telefono
             // 
@@ -210,6 +199,7 @@
             textBox_Telefono.Name = "textBox_Telefono";
             textBox_Telefono.Size = new Size(1227, 57);
             textBox_Telefono.TabIndex = 67;
+            textBox_Telefono.Visible = false;
             // 
             // checkBox_TutorActivo
             // 
@@ -222,6 +212,7 @@
             checkBox_TutorActivo.TabIndex = 66;
             checkBox_TutorActivo.Text = "Activo";
             checkBox_TutorActivo.UseVisualStyleBackColor = true;
+            checkBox_TutorActivo.Visible = false;
             // 
             // label_NombreTutor
             // 
@@ -233,6 +224,7 @@
             label_NombreTutor.Size = new Size(97, 27);
             label_NombreTutor.TabIndex = 65;
             label_NombreTutor.Text = "Nombre";
+            label_NombreTutor.Visible = false;
             // 
             // label_IdTutor
             // 
@@ -244,6 +236,7 @@
             label_IdTutor.Size = new Size(35, 27);
             label_IdTutor.TabIndex = 64;
             label_IdTutor.Text = "ID";
+            label_IdTutor.Visible = false;
             // 
             // textBox_NombreTutor
             // 
@@ -253,6 +246,7 @@
             textBox_NombreTutor.Name = "textBox_NombreTutor";
             textBox_NombreTutor.Size = new Size(1227, 57);
             textBox_NombreTutor.TabIndex = 63;
+            textBox_NombreTutor.Visible = false;
             // 
             // textBox_IdTutor
             // 
@@ -262,6 +256,7 @@
             textBox_IdTutor.Name = "textBox_IdTutor";
             textBox_IdTutor.Size = new Size(1227, 58);
             textBox_IdTutor.TabIndex = 62;
+            textBox_IdTutor.Visible = false;
             // 
             // groupBoxAcciones
             // 
@@ -272,7 +267,7 @@
             groupBoxAcciones.Enabled = false;
             groupBoxAcciones.Location = new Point(1, 396);
             groupBoxAcciones.Name = "groupBoxAcciones";
-            groupBoxAcciones.Size = new Size(250, 263);
+            groupBoxAcciones.Size = new Size(250, 251);
             groupBoxAcciones.TabIndex = 26;
             groupBoxAcciones.TabStop = false;
             // 
@@ -282,7 +277,7 @@
             buttonImprimir.Enabled = false;
             buttonImprimir.Font = new Font("Arial Black", 12F, FontStyle.Bold);
             buttonImprimir.ForeColor = Color.White;
-            buttonImprimir.Location = new Point(6, 167);
+            buttonImprimir.Location = new Point(6, 27);
             buttonImprimir.Name = "buttonImprimir";
             buttonImprimir.Size = new Size(232, 58);
             buttonImprimir.TabIndex = 24;
@@ -295,7 +290,7 @@
             buttonAgregar.Enabled = false;
             buttonAgregar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
             buttonAgregar.ForeColor = Color.White;
-            buttonAgregar.Location = new Point(6, 39);
+            buttonAgregar.Location = new Point(6, 91);
             buttonAgregar.Name = "buttonAgregar";
             buttonAgregar.Size = new Size(232, 58);
             buttonAgregar.TabIndex = 0;
@@ -308,7 +303,7 @@
             buttonModificar.Enabled = false;
             buttonModificar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
             buttonModificar.ForeColor = Color.White;
-            buttonModificar.Location = new Point(6, 103);
+            buttonModificar.Location = new Point(6, 155);
             buttonModificar.Name = "buttonModificar";
             buttonModificar.Size = new Size(232, 58);
             buttonModificar.TabIndex = 23;
@@ -356,7 +351,6 @@
         private Panel panelBuscar;
         private Panel panelDeco;
         private Button buttonCerrarTutores;
-        private Button buttonBuscarTutores;
         private GroupBox groupBoxAcepCan;
         private Button buttonAceptar;
         private Button buttonCancelar;
