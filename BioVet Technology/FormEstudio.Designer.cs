@@ -633,6 +633,7 @@
             tabControlEstudio.SelectedIndex = 0;
             tabControlEstudio.Size = new Size(1235, 684);
             tabControlEstudio.TabIndex = 22;
+            tabControlEstudio.Visible = false;
             // 
             // textBox_NombreEstudio
             // 
