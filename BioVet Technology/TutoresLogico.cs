@@ -9,42 +9,23 @@ namespace BioVet_Technology
 {
     public class TutoresLogico
     {
-        private string Cadena => ConfigurationManager.ConnectionStrings["cadena"].ConnectionString;
-        private static TutoresLogico _instancia = null;
 
-        public static TutoresLogico Instancia
+        public static bool Guardar(Tutores obj)
         {
-            get
+            string consulta = "INSERT INTO Tutor (nombre, telefono, mail, activo) VALUES (@nombre, @telefono, @mail, @activo)";
+
+            List<SqliteParameter> parametros = new List<SqliteParameter>
             {
-                if (_instancia == null)
-                {
-                    _instancia = new TutoresLogico();
-                }
-                return _instancia;
-            }
+                new SqliteParameter("@nombre", obj.Nombre.ToUpper()),
+                new SqliteParameter("@telefono", obj.Telefono),
+                new SqliteParameter("@mail", obj.Mail),
+                new SqliteParameter("@activo", obj.Activo)
+            };
+
+            GestorConexion.AlterarBD(consulta, parametros);
+            
+
+            return true;
         }
-        public bool Guardar(Tutores obj)
-        {
-            bool respuesta = true;
-
-            using (SqliteConnection conexion = new SqliteConnection(Cadena)) // creo un objeto de conexion para la base de datos , usando la cadena de conexion que esta en el archivo App.config
-            {
-                conexion.Open();
-                string query = "INSERT INTO Tutor (nombre, telefono, mail, activo) VALUES (@nombre, @telefono, @mail, @activo)";
-                SqliteCommand cmd = new SqliteCommand(query, conexion);
-                cmd.Parameters.Add(new SqliteParameter("@nombre", obj.Nombre.ToUpper())); // toUpper convierte el texto a mayúsculas para mantener consistencia en la base de datos
-                cmd.Parameters.Add(new SqliteParameter("@telefono", obj.Telefono));
-                cmd.Parameters.Add(new SqliteParameter("@mail", obj.Mail));
-                cmd.Parameters.Add(new SqliteParameter("@activo", obj.Activo));
-                cmd.CommandType = System.Data.CommandType.Text;
-
-                if (cmd.ExecuteNonQuery() < 1)
-                {
-                    respuesta = false;
-                }
-            }
-            return respuesta;
-        }
-
     }
 }
