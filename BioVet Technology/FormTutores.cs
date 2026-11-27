@@ -56,13 +56,14 @@ namespace BioVet_Technology
             textBox_Mail.Clear();
             checkBox_TutorActivo.Checked = true; // Marca el checkbox como activo por defecto
 
-
+            // Deshabilita los campos de texto y el checkbox para evitar la edición hasta que se seleccione una acción
             textBox_IdTutor.Enabled = false;
             textBox_NombreTutor.Enabled = false;
             textBox_Telefono.Enabled = false;
             textBox_Mail.Enabled = false;
             checkBox_TutorActivo.Enabled = false;
 
+            // Oculta los campos de texto y el checkbox para mantener la interfaz limpia hasta que se seleccione una acción
             label_IdTutor.Visible = false;
             textBox_IdTutor.Visible = false;
             label_NombreTutor.Visible = false;
@@ -117,13 +118,13 @@ namespace BioVet_Technology
             {
                 if (!camposVacios()) return; // Si hay campos vacíos, se detiene la ejecución del método y no se guarda el registro
 
-                Tutores objeto = new Tutores();
-                objeto.Nombre = textBox_NombreTutor.Text;
+                Tutores objeto = new Tutores(); // Crea una nueva instancia de la clase Tutores para almacenar los datos ingresados por el usuario
+                objeto.Nombre = textBox_NombreTutor.Text;  // Asigna el valor del campo de texto al objeto
                 objeto.Telefono = textBox_Telefono.Text;
                 objeto.Mail = textBox_Mail.Text;
                 objeto.Activo = checkBox_TutorActivo.Checked;
 
-                if (TutoresLogico.Instancia.Guardar(objeto))
+                if (TutoresLogico.Instancia.Guardar(objeto)) // Llama al método Guardar de la clase TutoresLogico para intentar guardar el objeto
                 {
                     EstadoInicial();
                 }
@@ -132,8 +133,8 @@ namespace BioVet_Technology
         }
 
         private bool camposVacios()
-        {
-            if (string.IsNullOrWhiteSpace(textBox_NombreTutor.Text) ||
+        { 
+            if (string.IsNullOrWhiteSpace(textBox_NombreTutor.Text) ||  // Verifica si los campos de texto están vacíos o contienen solo espacios en blanco
                string.IsNullOrWhiteSpace(textBox_Telefono.Text) ||
                string.IsNullOrWhiteSpace(textBox_Mail.Text))
             {
