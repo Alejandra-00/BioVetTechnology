@@ -218,12 +218,14 @@
             // 
             // textBox_Mail
             // 
+            textBox_Mail.CharacterCasing = CharacterCasing.Lower;
             textBox_Mail.Location = new Point(12, 224);
             textBox_Mail.Margin = new Padding(2);
             textBox_Mail.Multiline = true;
             textBox_Mail.Name = "textBox_Mail";
             textBox_Mail.Size = new Size(757, 37);
             textBox_Mail.TabIndex = 69;
+            textBox_Mail.KeyDown += textBox_Mail_KeyDown;
             // 
             // label_Telefono
             // 
@@ -240,10 +242,13 @@
             // 
             textBox_Telefono.Location = new Point(12, 161);
             textBox_Telefono.Margin = new Padding(2);
+            textBox_Telefono.MaxLength = 10;
             textBox_Telefono.Multiline = true;
             textBox_Telefono.Name = "textBox_Telefono";
             textBox_Telefono.Size = new Size(757, 37);
             textBox_Telefono.TabIndex = 67;
+            textBox_Telefono.KeyDown += textBox_Telefono_KeyDown;
+            textBox_Telefono.KeyPress += textBox_Telefono_KeyPress;
             // 
             // checkBox_TutorActivo
             // 
@@ -287,6 +292,7 @@
             textBox_NombreTutor.Name = "textBox_NombreTutor";
             textBox_NombreTutor.Size = new Size(757, 37);
             textBox_NombreTutor.TabIndex = 63;
+            textBox_NombreTutor.KeyDown += textBox_NombreTutor_KeyDown;
             // 
             // textBox_IdTutor
             // 

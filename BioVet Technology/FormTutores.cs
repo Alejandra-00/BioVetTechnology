@@ -40,19 +40,11 @@ namespace BioVet_Technology
             textBox_Mail.Clear();
             checkBox_TutorActivo.Checked = true;
 
-            activar(textBox_IdTutor, false);
-            activar(textBox_NombreTutor, false);
-            activar(textBox_Telefono, false);
-            activar(textBox_Mail, false);
-            activar(checkBox_TutorActivo, false);
-
-            // Oculta el panel completo de detalles y los botones de Aceptar/Cancelar
+            activar(panelDetallesTutor, false);
             mostrar(panelDetallesTutor, false);
             mostrar(groupBoxAcepCan, false);
             activar(groupBoxAcepCan, false);
             groupBoxAcepCan.Text = "";
-
-            // Muestra la barra de busqueda y oculta el listbox
             textBox_BuscarTutor.Clear();
             mostrar(panelBuscar, true);
             activar(panelBuscar, true);
@@ -60,8 +52,6 @@ namespace BioVet_Technology
             activar(textBox_BuscarTutor, true);
             mostrar(listBox_SelectTutores, false);
             listBox_SelectTutores.Items.Clear();
-
-            // Muestra las acciones principales y desactiva Modificar
             activar(groupBoxAcciones, true);
             mostrar(groupBoxAcciones, true);
             activar(buttonModificar, false);
@@ -190,6 +180,7 @@ namespace BioVet_Technology
         {
             groupBoxAcepCan.Text = "AGREGAR";
             activar(textBox_IdTutor, false);
+            mostrar(checkBox_TutorActivo, false);
             mostrar(panelDetallesTutor, true);
             activar(panelDetallesTutor, true);
             activar(textBox_NombreTutor, true);
@@ -248,7 +239,7 @@ namespace BioVet_Technology
 
                 Tutores objeto = new Tutores(); // Crea una nueva instancia de la clase Tutores para almacenar los datos ingresados por el usuario
                 objeto.Nombre = textBox_NombreTutor.Text;  // Asigna el valor del campo de texto al objeto
-                objeto.Telefono = textBox_Telefono.Text;
+                objeto.Telefono = textBox_Telefono.Text; 
                 objeto.Mail = textBox_Mail.Text;
                 objeto.Activo = checkBox_TutorActivo.Checked ? "1" : "0"; // Adaptado al formato "1" / "0"
 
@@ -264,7 +255,7 @@ namespace BioVet_Technology
 
                 int idTutor = int.Parse(textBox_IdTutor.Text);
                 string nombre = textBox_NombreTutor.Text;
-                string telefono = textBox_Telefono.Text;
+                string telefono = textBox_Telefono.Text; 
                 string mail = textBox_Mail.Text;
                 string activo = checkBox_TutorActivo.Checked ? "1" : "0";
 
@@ -287,9 +278,9 @@ namespace BioVet_Technology
                 return false;
             }
 
-            if (textBox_Telefono.Text.Length < 11) // Verifica que el teléfono tenga los 10 dígitos más el espacio (ej: 2262 667587)
+            if (textBox_Telefono.Text.Count(char.IsDigit) != 10) // Verifica que el teléfono tenga los 10 dígitos 
             {
-                MessageBox.Show("El teléfono debe tener 10 dígitos (ej: 2262 667587).",
+                MessageBox.Show("El teléfono debe tener 10 dígitos ",
                                 "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBox_Telefono.Focus();
                 return false;
@@ -301,6 +292,45 @@ namespace BioVet_Technology
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             EstadoInicial();
+        }
+
+        private void textBox_NombreTutor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // evita que se ejecute el boton aceptar al presionar Enter
+                textBox_Telefono.Focus(); // Mueve el foco al siguiente campo
+            }
+        }
+
+        private void textBox_Telefono_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; 
+                textBox_Mail.Focus();
+            }
+        }
+
+        private void textBox_Mail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                groupBoxAcepCan.Focus();
+            }
+        }
+
+        private void textBox_Telefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar)) // Permite solo dígitos  y teclas de control 
+            {
+                e.Handled = false;   
+            }
+            else
+            {
+                e.Handled = true;    
+            }
         }
     }
 }

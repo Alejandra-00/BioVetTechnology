@@ -43,13 +43,13 @@ namespace BioVet_Technology
         {
             bool respuesta = true;
 
-            using (SqliteConnection conexion = new SqliteConnection(Cadena)) 
+            using (SqliteConnection conexion = new SqliteConnection(Cadena)) // Utiliza la cadena de conexión desde el archivo de configuración
             {
                 conexion.Open();
                 string query = "INSERT INTO Tutor (nombre, telefono, mail, activo) VALUES (@nombre, @telefono, @mail, @activo)";
-                SqliteCommand cmd = new SqliteCommand(query, conexion);
-                cmd.Parameters.Add(new SqliteParameter("@nombre", obj.Nombre.ToUpper()));
-                cmd.Parameters.Add(new SqliteParameter("@telefono", obj.Telefono));
+                SqliteCommand cmd = new SqliteCommand(query, conexion); // Crea un comando SQL para insertar un nuevo registro en la tabla Tutor
+                cmd.Parameters.Add(new SqliteParameter("@nombre", obj.Nombre.ToUpper())); 
+                cmd.Parameters.Add(new SqliteParameter("@telefono", obj.Telefono)); 
                 cmd.Parameters.Add(new SqliteParameter("@mail", obj.Mail));
                 cmd.Parameters.Add(new SqliteParameter("@activo", obj.Activo));
                 cmd.CommandType = System.Data.CommandType.Text;
