@@ -167,6 +167,7 @@
             buttonCancelar.TabIndex = 17;
             buttonCancelar.Text = "CANCELAR";
             buttonCancelar.UseVisualStyleBackColor = false;
+            buttonCancelar.Click += buttonCancelar_Click;
             // 
             // label_Mail
             // 
@@ -215,6 +216,7 @@
             textBox_Telefono.Size = new Size(757, 37);
             textBox_Telefono.TabIndex = 67;
             textBox_Telefono.Visible = false;
+            textBox_Telefono.KeyPress += textBox_Telefono_KeyPress;
             // 
             // checkBox_TutorActivo
             // 

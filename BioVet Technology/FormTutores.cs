@@ -50,11 +50,12 @@ namespace BioVet_Technology
 
         private void EstadoInicial()
         {
-            textBox_IdTutor.Clear();
+            textBox_IdTutor.Clear(); // Limpia el contenido de los campos de texto y restablece el estado inicial del formulario
             textBox_NombreTutor.Clear();
             textBox_Telefono.Clear();
             textBox_Mail.Clear();
-            checkBox_TutorActivo.Checked = true;
+            checkBox_TutorActivo.Checked = true; // Marca el checkbox como activo por defecto
+
 
             textBox_IdTutor.Enabled = false;
             textBox_NombreTutor.Enabled = false;
@@ -62,19 +63,31 @@ namespace BioVet_Technology
             textBox_Mail.Enabled = false;
             checkBox_TutorActivo.Enabled = false;
 
-            groupBoxAcepCan.Visible = false;
+            label_IdTutor.Visible = false;
+            textBox_IdTutor.Visible = false;
+            label_NombreTutor.Visible = false;
+            textBox_NombreTutor.Visible = false;
+            label_Telefono.Visible = false;
+            textBox_Telefono.Visible = false;
+            label_Mail.Visible = false;
+            textBox_Mail.Visible = false;
+            checkBox_TutorActivo.Visible = false;
 
+            groupBoxAcepCan.Visible = false;
             groupBoxAcciones.Enabled = true;
+            groupBoxAcciones.Visible = true;
         }
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
             textBox_IdTutor.Enabled = false;
+            groupBoxAcepCan.Text = "AGREGAR";
             textBox_NombreTutor.Enabled = true;
             textBox_Telefono.Enabled = true;
             textBox_Mail.Enabled = true;
             checkBox_TutorActivo.Enabled = true;
 
-            // mostrar campos
+            //campos visibles
+            groupBoxAcciones.Visible = false;
             label_IdTutor.Visible = true;
             textBox_IdTutor.Visible = true;
             label_NombreTutor.Visible = true;
@@ -83,13 +96,13 @@ namespace BioVet_Technology
             textBox_Telefono.Visible = true;
             label_Mail.Visible = true;
             textBox_Mail.Visible = true;
-            checkBox_TutorActivo.Visible = true;
+            checkBox_TutorActivo.Visible = false;
 
             // mostrar aceptar/cancelar
             groupBoxAcepCan.Visible = true;
             groupBoxAcepCan.Enabled = true;
 
-            // limpiar y enfocar
+            // limpiar campos si es que se vuelve a agregar un nuevo registro
             textBox_IdTutor.Clear();
             textBox_NombreTutor.Clear();
             textBox_Telefono.Clear();
@@ -100,9 +113,9 @@ namespace BioVet_Technology
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-            if (groupBoxAcciones.Text == "AGREGAR")
+            if (groupBoxAcepCan.Text == "AGREGAR")
             {
-                if (!camposVacios()) return;
+                if (!camposVacios()) return; // Si hay campos vacíos, se detiene la ejecución del método y no se guarda el registro
 
                 Tutores objeto = new Tutores();
                 objeto.Nombre = textBox_NombreTutor.Text;
@@ -112,10 +125,7 @@ namespace BioVet_Technology
 
                 if (TutoresLogico.Instancia.Guardar(objeto))
                 {
-                    groupBoxAcepCan.Visible = false;
-                    groupBoxAcepCan.Enabled = false;
-                    groupBoxAcciones.Visible = true;
-                    groupBoxAcciones.Enabled = true;
+                    EstadoInicial();
                 }
             }
 
@@ -123,15 +133,33 @@ namespace BioVet_Technology
 
         private bool camposVacios()
         {
-            if (textBox_NombreTutor.Text == "" ||
-                textBox_Telefono.Text == "" ||
-                textBox_Mail.Text == "")
+            if (string.IsNullOrWhiteSpace(textBox_NombreTutor.Text) ||
+               string.IsNullOrWhiteSpace(textBox_Telefono.Text) ||
+               string.IsNullOrWhiteSpace(textBox_Mail.Text))
             {
-                MessageBox.Show("Complete todos los campos", "Atención",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return true;
+                MessageBox.Show("Rellená todos los campos, son obligatorios.",
+                                "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox_NombreTutor.Focus();
+                return false;
             }
-            return false;
+            return true;
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            EstadoInicial();
+        }
+
+        private void textBox_Telefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar) || Char.IsSeparator(e.KeyChar)) // Permitir solo dígitos, teclas de control y espacios
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

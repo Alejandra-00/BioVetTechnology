@@ -27,12 +27,12 @@ namespace BioVet_Technology
         {
             bool respuesta = true;
 
-            using (SqliteConnection conexion = new SqliteConnection(Cadena))
+            using (SqliteConnection conexion = new SqliteConnection(Cadena)) // creo un objeto de conexion para la base de datos , usando la cadena de conexion que esta en el archivo App.config
             {
                 conexion.Open();
                 string query = "INSERT INTO Tutor (nombre, telefono, mail, activo) VALUES (@nombre, @telefono, @mail, @activo)";
                 SqliteCommand cmd = new SqliteCommand(query, conexion);
-                cmd.Parameters.Add(new SqliteParameter("@nombre", obj.Nombre.ToUpper()));
+                cmd.Parameters.Add(new SqliteParameter("@nombre", obj.Nombre.ToUpper())); // toUpper convierte el texto a mayúsculas para mantener consistencia en la base de datos
                 cmd.Parameters.Add(new SqliteParameter("@telefono", obj.Telefono));
                 cmd.Parameters.Add(new SqliteParameter("@mail", obj.Mail));
                 cmd.Parameters.Add(new SqliteParameter("@activo", obj.Activo));
