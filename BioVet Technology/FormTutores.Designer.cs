@@ -307,7 +307,7 @@
             groupBoxAcciones.Margin = new Padding(2);
             groupBoxAcciones.Name = "groupBoxAcciones";
             groupBoxAcciones.Padding = new Padding(2);
-            groupBoxAcciones.Size = new Size(154, 157);
+            groupBoxAcciones.Size = new Size(157, 157);
             groupBoxAcciones.TabIndex = 26;
             groupBoxAcciones.TabStop = false;
             // 
@@ -319,7 +319,7 @@
             buttonImprimir.Location = new Point(4, 17);
             buttonImprimir.Margin = new Padding(2);
             buttonImprimir.Name = "buttonImprimir";
-            buttonImprimir.Size = new Size(143, 36);
+            buttonImprimir.Size = new Size(149, 36);
             buttonImprimir.TabIndex = 24;
             buttonImprimir.Text = "IMPRIMIR";
             buttonImprimir.UseVisualStyleBackColor = false;
@@ -332,7 +332,7 @@
             buttonAgregar.Location = new Point(4, 57);
             buttonAgregar.Margin = new Padding(2);
             buttonAgregar.Name = "buttonAgregar";
-            buttonAgregar.Size = new Size(143, 36);
+            buttonAgregar.Size = new Size(149, 36);
             buttonAgregar.TabIndex = 0;
             buttonAgregar.Text = "AGREGAR";
             buttonAgregar.UseVisualStyleBackColor = false;
@@ -347,11 +347,12 @@
             buttonModificar.Location = new Point(4, 97);
             buttonModificar.Margin = new Padding(2);
             buttonModificar.Name = "buttonModificar";
-            buttonModificar.Size = new Size(143, 36);
+            buttonModificar.Size = new Size(149, 36);
             buttonModificar.TabIndex = 23;
             buttonModificar.Text = "MODIFICAR";
             buttonModificar.UseVisualStyleBackColor = false;
             buttonModificar.Visible = false;
+            buttonModificar.Click += buttonModificar_Click;
             // 
             // panelDetallesTutor
             // 

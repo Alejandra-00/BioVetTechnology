@@ -67,5 +67,40 @@ namespace BioVet_Technology
 
             return respuesta;
         }
+
+        public static bool Modificar(int idTutor, string nombre, string telefono, string mail, string activo)
+        {
+            if (idTutor <= 0 || string.IsNullOrWhiteSpace(nombre))
+                return false;
+
+            bool respuesta = true;
+
+            using (SqliteConnection conexion = new SqliteConnection(Cadena))
+            {
+                conexion.Open();
+                string query = @"UPDATE Tutor SET nombre = @nombre, telefono = @telefono, mail = @mail, activo = @activo
+                WHERE id_tutor = @id_tutor";
+
+                SqliteCommand cmd = new SqliteCommand(query, conexion);
+                cmd.Parameters.Add(new SqliteParameter("@id_tutor", idTutor));
+                cmd.Parameters.Add(new SqliteParameter("@nombre", nombre.Trim().ToUpper()));
+                cmd.Parameters.Add(new SqliteParameter("@telefono", telefono.Trim()));
+                cmd.Parameters.Add(new SqliteParameter("@mail", mail.Trim()));
+                cmd.Parameters.Add(new SqliteParameter("@activo", activo));
+                cmd.CommandType = System.Data.CommandType.Text;
+
+                if (cmd.ExecuteNonQuery() < 1)
+                {
+                    respuesta = false;
+                }
+            }
+
+            if (respuesta)
+            {
+                LlenarDiccionario();
+            }
+
+            return respuesta;
+        }
     }
 }

@@ -201,6 +201,31 @@ namespace BioVet_Technology
             textBox_NombreTutor.Focus();
         }
 
+        private void buttonModificar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox_IdTutor.Text))
+                return;
+
+            groupBoxAcepCan.Text = "MODIFICAR";
+            groupBoxAcciones.Visible = false;
+            textBox_BuscarTutor.Visible = false;
+            listBox_SelectTutores.Visible = false;
+
+            panelDetallesTutor.Visible = true;
+            panelDetallesTutor.Enabled = true;
+
+            textBox_IdTutor.Enabled = false;
+            textBox_NombreTutor.Enabled = true;
+            textBox_Telefono.Enabled = true;
+            textBox_Mail.Enabled = true;
+            checkBox_TutorActivo.Enabled = true;
+
+            groupBoxAcepCan.Visible = true;
+            groupBoxAcepCan.Enabled = true;
+
+            textBox_NombreTutor.Focus();
+        }
+
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
             if (groupBoxAcepCan.Text == "AGREGAR")
@@ -214,6 +239,22 @@ namespace BioVet_Technology
                 objeto.Activo = checkBox_TutorActivo.Checked ? "1" : "0"; // Adaptado al formato "1" / "0"
 
                 if (Tutores.Guardar(objeto)) // Llama al método Guardar de la clase Tutores para intentar guardar el objeto
+                {
+                    EstadoInicial();
+                }
+            }
+
+            else if (groupBoxAcepCan.Text == "MODIFICAR")
+            {
+                if (!camposVacios()) return;
+
+                int idTutor = int.Parse(textBox_IdTutor.Text);
+                string nombre = textBox_NombreTutor.Text;
+                string telefono = textBox_Telefono.Text;
+                string mail = textBox_Mail.Text;
+                string activo = checkBox_TutorActivo.Checked ? "1" : "0";
+
+                if (Tutores.Modificar(idTutor, nombre, telefono, mail, activo))
                 {
                     EstadoInicial();
                 }
