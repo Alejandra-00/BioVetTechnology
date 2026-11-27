@@ -16,6 +16,10 @@ namespace BioVet_Technology
             // Centra esta ventana tomando como referencia el formulario que la invocó
             this.StartPosition = FormStartPosition.CenterScreen;
         }
+        private void buttonCerrarTutores_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         public FormTutores(string apartado)
         {
@@ -32,32 +36,6 @@ namespace BioVet_Technology
             checkBox_TutorActivo.Checked = tutor.Activo == "1";
         }
 
-        private void EstadoInicial()
-        {
-            textBox_IdTutor.Clear();
-            textBox_NombreTutor.Clear();
-            textBox_Telefono.Clear();
-            textBox_Mail.Clear();
-            checkBox_TutorActivo.Checked = true;
-
-            activar(panelDetallesTutor, false);
-            mostrar(panelDetallesTutor, false);
-            mostrar(groupBoxAcepCan, false);
-            activar(groupBoxAcepCan, false);
-            groupBoxAcepCan.Text = "";
-            textBox_BuscarTutor.Clear();
-            mostrar(panelBuscar, true);
-            activar(panelBuscar, true);
-            mostrar(textBox_BuscarTutor, true);
-            activar(textBox_BuscarTutor, true);
-            mostrar(listBox_SelectTutores, false);
-            listBox_SelectTutores.Items.Clear();
-            activar(groupBoxAcciones, true);
-            mostrar(groupBoxAcciones, true);
-            activar(buttonModificar, false);
-            mostrar(buttonModificar, false);
-        }
-
         private void mostrar(Control control, bool mostrar)
         {
             control.Visible = mostrar;
@@ -68,9 +46,47 @@ namespace BioVet_Technology
             control.Enabled = activar;
         }
 
-        private void buttonCerrarTutores_Click(object sender, EventArgs e)
+        private void limpiarTextBox(Control contenedor) 
         {
-            this.Close();
+            foreach(Control c in contenedor.Controls)
+            {
+                if (c is TextBox tbox)
+                {
+                    tbox.Clear();
+                }
+            }
+        }
+
+        private void EstadoInicial()
+        {
+            // Ocultar, desactivar y limpiar detalles y los botones de Aceptar/Cancelar.
+            mostrar(panelDetallesTutor, false);
+            mostrar(groupBoxAcepCan, false);
+
+            activar(panelDetallesTutor, false);
+            activar(groupBoxAcepCan, false);
+           
+            limpiarTextBox(panelDetallesTutor);
+            limpiarTextBox(groupBoxAcepCan);
+
+            // Limpiar, mostrar y activar barra de búsqueda.
+            limpiarTextBox(panelBuscar);
+
+            mostrar(panelBuscar, true);
+            mostrar(listBox_SelectTutores, false); //Ocultar listBox.
+
+            activar(panelBuscar, true);
+            activar(listBox_SelectTutores, true);
+
+            // Mostrar y activar acciones principales.
+            mostrar(groupBoxAcciones, true);
+
+            activar(groupBoxAcciones, true);
+
+            //Ocultar y desactivar botón Modificar.
+            activar(buttonModificar, false);
+
+            mostrar(buttonModificar, false);
         }
 
         private void FormTutores_FormClosing(object sender, FormClosingEventArgs e)
@@ -114,6 +130,7 @@ namespace BioVet_Technology
             textBox_BuscarTutor.Focus();
         }
 
+        //Buscar Tutores
         private void textBox_BuscarTutor_TextChanged(object sender, EventArgs e)
         {
             listBox_SelectTutores.Items.Clear();
@@ -176,43 +193,76 @@ namespace BioVet_Technology
             }
         }
 
+        //Agregar Tutor
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
             groupBoxAcepCan.Text = "AGREGAR";
-            activar(textBox_IdTutor, false);
-            mostrar(checkBox_TutorActivo, false);
+
+            //Mostrar y activar textbox´s y label´s, menos el id, ya que este se autoincrementa.
             mostrar(panelDetallesTutor, true);
             activar(panelDetallesTutor, true);
-            activar(textBox_NombreTutor, true);
+
+            mostrar(textBox_IdTutor, false); //Ocultar para evitar su manipulación. 
+            mostrar(label_IdTutor, false);
+            activar(textBox_IdTutor, false); //Desactivar id para evitar su manupulación.
+
+            /*activar(textBox_NombreTutor, true);
             activar(textBox_Telefono, true);
-            activar(textBox_Mail, true);
+            activar(textBox_Mail, true); */
+
+            // Ocultar acciones principales.
             mostrar(groupBoxAcciones, false);
+
+            //Ocultar y desactivar barra de búsqueda.
             mostrar(panelBuscar, false);
-            mostrar(textBox_BuscarTutor, false);
+            activar(panelBuscar, false);
+
+            /*mostrar(textBox_BuscarTutor, false);
             textBox_BuscarTutor.Clear();
             mostrar(listBox_SelectTutores, false);
-            listBox_SelectTutores.Items.Clear();
+            listBox_SelectTutores.Items.Clear(); */
 
-            // Muestra y activa aceptar/cancelar
+            // Mostrar y activar botones aceptar/cancelar.
             mostrar(groupBoxAcepCan, true);
             activar(groupBoxAcepCan, true);
 
-            // Limpia campos
-            textBox_IdTutor.Clear();
+            // Limpiar campos.
+
+            /*textBox_IdTutor.Clear();
             textBox_NombreTutor.Clear();
             textBox_Telefono.Clear();
             textBox_Mail.Clear();
-            checkBox_TutorActivo.Checked = true;
+            checkBox_TutorActivo.Checked = true; */
+            limpiarTextBox(panelDetallesTutor);
+
+            //Fijar foco en el primer campo visible.
             textBox_NombreTutor.Focus();
         }
-
+        //Modificar Tutor
         private void buttonModificar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBox_IdTutor.Text))
                 return;
 
             groupBoxAcepCan.Text = "MODIFICAR";
-            groupBoxAcciones.Visible = false;
+
+            // Desactivar y ocultar acciones principales.
+            mostrar(groupBoxAcciones, false);
+            activar(groupBoxAcciones, false);
+
+            // Ocultar y desactivar barra de búsqueda.
+            mostrar(panelBuscar, false);
+            activar(panelBuscar, false);
+
+            // Activar campos de detalles, excepto el id.
+            activar(panelDetallesTutor, true);
+            activar(textBox_IdTutor, false); // Desactivar para evitar cambios.
+
+            // Mostrar y activar botones de aceptar/cancelar.
+            mostrar(groupBoxAcepCan, true);
+            activar(groupBoxAcepCan, true);
+
+            /*groupBoxAcciones.Visible = false;
             textBox_BuscarTutor.Visible = false;
             listBox_SelectTutores.Visible = false;
 
@@ -226,8 +276,9 @@ namespace BioVet_Technology
             checkBox_TutorActivo.Enabled = true;
 
             groupBoxAcepCan.Visible = true;
-            groupBoxAcepCan.Enabled = true;
+            groupBoxAcepCan.Enabled = true; */
 
+            // Fijar foco en el primer campo visible.
             textBox_NombreTutor.Focus();
         }
 
@@ -239,7 +290,7 @@ namespace BioVet_Technology
 
                 Tutores objeto = new Tutores(); // Crea una nueva instancia de la clase Tutores para almacenar los datos ingresados por el usuario
                 objeto.Nombre = textBox_NombreTutor.Text;  // Asigna el valor del campo de texto al objeto
-                objeto.Telefono = textBox_Telefono.Text; 
+                objeto.Telefono = textBox_Telefono.Text;
                 objeto.Mail = textBox_Mail.Text;
                 objeto.Activo = checkBox_TutorActivo.Checked ? "1" : "0"; // Adaptado al formato "1" / "0"
 
@@ -255,7 +306,7 @@ namespace BioVet_Technology
 
                 int idTutor = int.Parse(textBox_IdTutor.Text);
                 string nombre = textBox_NombreTutor.Text;
-                string telefono = textBox_Telefono.Text; 
+                string telefono = textBox_Telefono.Text;
                 string mail = textBox_Mail.Text;
                 string activo = checkBox_TutorActivo.Checked ? "1" : "0";
 
@@ -264,6 +315,11 @@ namespace BioVet_Technology
                     EstadoInicial();
                 }
             }
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            EstadoInicial();
         }
 
         private bool camposVacios()
@@ -278,59 +334,15 @@ namespace BioVet_Technology
                 return false;
             }
 
-            if (textBox_Telefono.Text.Count(char.IsDigit) != 10) // Verifica que el teléfono tenga los 10 dígitos 
+            if (textBox_Telefono.Text.Length < 11) // Verifica que el teléfono tenga los 10 dígitos más el espacio (ej: 2262 667587)
             {
-                MessageBox.Show("El teléfono debe tener 10 dígitos ",
+                MessageBox.Show("El teléfono debe tener 10 dígitos (ej: 2262 667587).",
                                 "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBox_Telefono.Focus();
                 return false;
             }
 
             return true;
-        }
-
-        private void buttonCancelar_Click(object sender, EventArgs e)
-        {
-            EstadoInicial();
-        }
-
-        private void textBox_NombreTutor_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // evita que se ejecute el boton aceptar al presionar Enter
-                textBox_Telefono.Focus(); // Mueve el foco al siguiente campo
-            }
-        }
-
-        private void textBox_Telefono_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; 
-                textBox_Mail.Focus();
-            }
-        }
-
-        private void textBox_Mail_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-                groupBoxAcepCan.Focus();
-            }
-        }
-
-        private void textBox_Telefono_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar)) // Permite solo dígitos  y teclas de control 
-            {
-                e.Handled = false;   
-            }
-            else
-            {
-                e.Handled = true;    
-            }
         }
     }
 }

@@ -65,22 +65,20 @@
             // listBox_SelectTutores
             // 
             listBox_SelectTutores.FormattingEnabled = true;
-            listBox_SelectTutores.Location = new Point(278, 129);
-            listBox_SelectTutores.Margin = new Padding(2);
+            listBox_SelectTutores.Location = new Point(450, 77);
             listBox_SelectTutores.Name = "listBox_SelectTutores";
             listBox_SelectTutores.ScrollAlwaysVisible = true;
-            listBox_SelectTutores.Size = new Size(586, 104);
+            listBox_SelectTutores.Size = new Size(950, 164);
             listBox_SelectTutores.TabIndex = 31;
             listBox_SelectTutores.Visible = false;
             // 
             // textBox_BuscarTutor
             // 
             textBox_BuscarTutor.CharacterCasing = CharacterCasing.Lower;
-            textBox_BuscarTutor.Location = new Point(278, 93);
-            textBox_BuscarTutor.Margin = new Padding(2);
+            textBox_BuscarTutor.Location = new Point(452, 149);
             textBox_BuscarTutor.Multiline = true;
             textBox_BuscarTutor.Name = "textBox_BuscarTutor";
-            textBox_BuscarTutor.Size = new Size(586, 38);
+            textBox_BuscarTutor.Size = new Size(950, 58);
             textBox_BuscarTutor.TabIndex = 30;
             textBox_BuscarTutor.TextChanged += textBox_BuscarTutor_TextChanged;
             textBox_BuscarTutor.KeyDown += textBox_BuscarTutor_KeyDown;
@@ -91,10 +89,9 @@
             buttonBuscar.BackColor = Color.MidnightBlue;
             buttonBuscar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
             buttonBuscar.ForeColor = Color.White;
-            buttonBuscar.Location = new Point(1372, 12);
-            buttonBuscar.Margin = new Padding(2);
+            buttonBuscar.Location = new Point(2230, 19);
             buttonBuscar.Name = "buttonBuscar";
-            buttonBuscar.Size = new Size(149, 36);
+            buttonBuscar.Size = new Size(242, 58);
             buttonBuscar.TabIndex = 28;
             buttonBuscar.Text = "BUSCAR";
             buttonBuscar.UseVisualStyleBackColor = false;
@@ -103,10 +100,10 @@
             // 
             panelBuscar.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             panelBuscar.Controls.Add(buttonBuscar);
-            panelBuscar.Location = new Point(1, 81);
-            panelBuscar.Margin = new Padding(2);
+            panelBuscar.Controls.Add(listBox_SelectTutores);
+            panelBuscar.Location = new Point(2, 130);
             panelBuscar.Name = "panelBuscar";
-            panelBuscar.Size = new Size(1118, 162);
+            panelBuscar.Size = new Size(1817, 259);
             panelBuscar.TabIndex = 29;
             // 
             // panelDeco
@@ -116,19 +113,17 @@
             panelDeco.Controls.Add(pictureBoxLogo);
             panelDeco.Controls.Add(labelApartado);
             panelDeco.Controls.Add(buttonCerrarTutores);
-            panelDeco.Location = new Point(1, 1);
-            panelDeco.Margin = new Padding(2);
+            panelDeco.Location = new Point(2, 2);
             panelDeco.Name = "panelDeco";
-            panelDeco.Size = new Size(1118, 49);
+            panelDeco.Size = new Size(1817, 78);
             panelDeco.TabIndex = 28;
             // 
             // pictureBoxLogo
             // 
             pictureBoxLogo.Image = Properties.Resources.DESKNOVA__1_;
-            pictureBoxLogo.Location = new Point(2, 2);
-            pictureBoxLogo.Margin = new Padding(2);
+            pictureBoxLogo.Location = new Point(3, 3);
             pictureBoxLogo.Name = "pictureBoxLogo";
-            pictureBoxLogo.Size = new Size(50, 45);
+            pictureBoxLogo.Size = new Size(81, 72);
             pictureBoxLogo.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxLogo.TabIndex = 73;
             pictureBoxLogo.TabStop = false;
@@ -138,10 +133,9 @@
             labelApartado.AutoSize = true;
             labelApartado.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelApartado.ForeColor = Color.White;
-            labelApartado.Location = new Point(57, 14);
-            labelApartado.Margin = new Padding(2, 0, 2, 0);
+            labelApartado.Location = new Point(93, 22);
             labelApartado.Name = "labelApartado";
-            labelApartado.Size = new Size(96, 24);
+            labelApartado.Size = new Size(157, 37);
             labelApartado.TabIndex = 29;
             labelApartado.Text = "Apartado";
             // 
@@ -153,10 +147,9 @@
             buttonCerrarTutores.FlatStyle = FlatStyle.Flat;
             buttonCerrarTutores.Font = new Font("Arial Black", 12F, FontStyle.Bold);
             buttonCerrarTutores.ForeColor = Color.White;
-            buttonCerrarTutores.Location = new Point(1071, 7);
-            buttonCerrarTutores.Margin = new Padding(2);
+            buttonCerrarTutores.Location = new Point(1747, 10);
             buttonCerrarTutores.Name = "buttonCerrarTutores";
-            buttonCerrarTutores.Size = new Size(40, 40);
+            buttonCerrarTutores.Size = new Size(57, 58);
             buttonCerrarTutores.TabIndex = 32;
             buttonCerrarTutores.Text = "X";
             buttonCerrarTutores.UseVisualStyleBackColor = false;
@@ -168,11 +161,9 @@
             groupBoxAcepCan.Controls.Add(buttonAceptar);
             groupBoxAcepCan.Controls.Add(buttonCancelar);
             groupBoxAcepCan.Enabled = false;
-            groupBoxAcepCan.Location = new Point(425, 528);
-            groupBoxAcepCan.Margin = new Padding(2);
+            groupBoxAcepCan.Location = new Point(691, 845);
             groupBoxAcepCan.Name = "groupBoxAcepCan";
-            groupBoxAcepCan.Padding = new Padding(2);
-            groupBoxAcepCan.Size = new Size(305, 81);
+            groupBoxAcepCan.Size = new Size(496, 130);
             groupBoxAcepCan.TabIndex = 71;
             groupBoxAcepCan.TabStop = false;
             groupBoxAcepCan.Visible = false;
@@ -182,10 +173,9 @@
             buttonAceptar.BackColor = Color.MidnightBlue;
             buttonAceptar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
             buttonAceptar.ForeColor = Color.White;
-            buttonAceptar.Location = new Point(0, 21);
-            buttonAceptar.Margin = new Padding(2);
+            buttonAceptar.Location = new Point(0, 34);
             buttonAceptar.Name = "buttonAceptar";
-            buttonAceptar.Size = new Size(149, 36);
+            buttonAceptar.Size = new Size(242, 58);
             buttonAceptar.TabIndex = 17;
             buttonAceptar.Text = "ACEPTAR";
             buttonAceptar.UseVisualStyleBackColor = false;
@@ -196,10 +186,9 @@
             buttonCancelar.BackColor = Color.MidnightBlue;
             buttonCancelar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
             buttonCancelar.ForeColor = Color.White;
-            buttonCancelar.Location = new Point(156, 21);
-            buttonCancelar.Margin = new Padding(2);
+            buttonCancelar.Location = new Point(254, 34);
             buttonCancelar.Name = "buttonCancelar";
-            buttonCancelar.Size = new Size(145, 36);
+            buttonCancelar.Size = new Size(236, 58);
             buttonCancelar.TabIndex = 17;
             buttonCancelar.Text = "CANCELAR";
             buttonCancelar.UseVisualStyleBackColor = false;
@@ -209,55 +198,49 @@
             // 
             label_Mail.AutoSize = true;
             label_Mail.Font = new Font("Arial", 9F);
-            label_Mail.Location = new Point(12, 205);
-            label_Mail.Margin = new Padding(2, 0, 2, 0);
+            label_Mail.Location = new Point(20, 328);
             label_Mail.Name = "label_Mail";
-            label_Mail.Size = new Size(33, 17);
+            label_Mail.Size = new Size(55, 27);
             label_Mail.TabIndex = 70;
             label_Mail.Text = "Mail";
             // 
             // textBox_Mail
             // 
             textBox_Mail.CharacterCasing = CharacterCasing.Lower;
-            textBox_Mail.Location = new Point(12, 224);
+            textBox_Mail.Location = new Point(20, 357);
             textBox_Mail.Margin = new Padding(2);
             textBox_Mail.Multiline = true;
             textBox_Mail.Name = "textBox_Mail";
-            textBox_Mail.Size = new Size(757, 37);
+            textBox_Mail.Size = new Size(1228, 57);
             textBox_Mail.TabIndex = 69;
-            textBox_Mail.KeyDown += textBox_Mail_KeyDown;
             // 
             // label_Telefono
             // 
             label_Telefono.AutoSize = true;
             label_Telefono.Font = new Font("Arial", 9F);
-            label_Telefono.Location = new Point(12, 143);
-            label_Telefono.Margin = new Padding(2, 0, 2, 0);
+            label_Telefono.Location = new Point(20, 229);
             label_Telefono.Name = "label_Telefono";
-            label_Telefono.Size = new Size(62, 17);
+            label_Telefono.Size = new Size(102, 27);
             label_Telefono.TabIndex = 68;
             label_Telefono.Text = "Teléfono";
             // 
             // textBox_Telefono
             // 
-            textBox_Telefono.Location = new Point(12, 161);
+            textBox_Telefono.Location = new Point(20, 258);
             textBox_Telefono.Margin = new Padding(2);
             textBox_Telefono.MaxLength = 10;
             textBox_Telefono.Multiline = true;
             textBox_Telefono.Name = "textBox_Telefono";
-            textBox_Telefono.Size = new Size(757, 37);
+            textBox_Telefono.Size = new Size(1228, 57);
             textBox_Telefono.TabIndex = 67;
-            textBox_Telefono.KeyDown += textBox_Telefono_KeyDown;
-            textBox_Telefono.KeyPress += textBox_Telefono_KeyPress;
             // 
             // checkBox_TutorActivo
             // 
             checkBox_TutorActivo.AutoSize = true;
             checkBox_TutorActivo.Font = new Font("Arial", 9F);
-            checkBox_TutorActivo.Location = new Point(12, 267);
-            checkBox_TutorActivo.Margin = new Padding(2);
+            checkBox_TutorActivo.Location = new Point(20, 427);
             checkBox_TutorActivo.Name = "checkBox_TutorActivo";
-            checkBox_TutorActivo.Size = new Size(69, 21);
+            checkBox_TutorActivo.Size = new Size(107, 31);
             checkBox_TutorActivo.TabIndex = 66;
             checkBox_TutorActivo.Text = "Activo";
             checkBox_TutorActivo.UseVisualStyleBackColor = true;
@@ -266,10 +249,9 @@
             // 
             label_NombreTutor.AutoSize = true;
             label_NombreTutor.Font = new Font("Arial", 9F);
-            label_NombreTutor.Location = new Point(12, 78);
-            label_NombreTutor.Margin = new Padding(2, 0, 2, 0);
+            label_NombreTutor.Location = new Point(20, 125);
             label_NombreTutor.Name = "label_NombreTutor";
-            label_NombreTutor.Size = new Size(60, 17);
+            label_NombreTutor.Size = new Size(97, 27);
             label_NombreTutor.TabIndex = 65;
             label_NombreTutor.Text = "Nombre";
             // 
@@ -277,30 +259,26 @@
             // 
             label_IdTutor.AutoSize = true;
             label_IdTutor.Font = new Font("Arial", 9F);
-            label_IdTutor.Location = new Point(12, 11);
-            label_IdTutor.Margin = new Padding(2, 0, 2, 0);
+            label_IdTutor.Location = new Point(20, 18);
             label_IdTutor.Name = "label_IdTutor";
-            label_IdTutor.Size = new Size(22, 17);
+            label_IdTutor.Size = new Size(35, 27);
             label_IdTutor.TabIndex = 64;
             label_IdTutor.Text = "ID";
             // 
             // textBox_NombreTutor
             // 
-            textBox_NombreTutor.Location = new Point(12, 99);
-            textBox_NombreTutor.Margin = new Padding(2);
+            textBox_NombreTutor.Location = new Point(20, 158);
             textBox_NombreTutor.Multiline = true;
             textBox_NombreTutor.Name = "textBox_NombreTutor";
-            textBox_NombreTutor.Size = new Size(757, 37);
+            textBox_NombreTutor.Size = new Size(1228, 57);
             textBox_NombreTutor.TabIndex = 63;
-            textBox_NombreTutor.KeyDown += textBox_NombreTutor_KeyDown;
             // 
             // textBox_IdTutor
             // 
-            textBox_IdTutor.Location = new Point(12, 33);
-            textBox_IdTutor.Margin = new Padding(2);
+            textBox_IdTutor.Location = new Point(20, 53);
             textBox_IdTutor.Multiline = true;
             textBox_IdTutor.Name = "textBox_IdTutor";
-            textBox_IdTutor.Size = new Size(757, 38);
+            textBox_IdTutor.Size = new Size(1228, 58);
             textBox_IdTutor.TabIndex = 62;
             // 
             // groupBoxAcciones
@@ -309,11 +287,9 @@
             groupBoxAcciones.Controls.Add(buttonImprimir);
             groupBoxAcciones.Controls.Add(buttonAgregar);
             groupBoxAcciones.Controls.Add(buttonModificar);
-            groupBoxAcciones.Location = new Point(1, 248);
-            groupBoxAcciones.Margin = new Padding(2);
+            groupBoxAcciones.Location = new Point(2, 397);
             groupBoxAcciones.Name = "groupBoxAcciones";
-            groupBoxAcciones.Padding = new Padding(2);
-            groupBoxAcciones.Size = new Size(157, 157);
+            groupBoxAcciones.Size = new Size(255, 251);
             groupBoxAcciones.TabIndex = 26;
             groupBoxAcciones.TabStop = false;
             // 
@@ -322,10 +298,9 @@
             buttonImprimir.BackColor = Color.MidnightBlue;
             buttonImprimir.Font = new Font("Arial Black", 12F, FontStyle.Bold);
             buttonImprimir.ForeColor = Color.White;
-            buttonImprimir.Location = new Point(4, 17);
-            buttonImprimir.Margin = new Padding(2);
+            buttonImprimir.Location = new Point(6, 27);
             buttonImprimir.Name = "buttonImprimir";
-            buttonImprimir.Size = new Size(149, 36);
+            buttonImprimir.Size = new Size(242, 58);
             buttonImprimir.TabIndex = 24;
             buttonImprimir.Text = "IMPRIMIR";
             buttonImprimir.UseVisualStyleBackColor = false;
@@ -335,10 +310,9 @@
             buttonAgregar.BackColor = Color.MidnightBlue;
             buttonAgregar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
             buttonAgregar.ForeColor = Color.White;
-            buttonAgregar.Location = new Point(4, 57);
-            buttonAgregar.Margin = new Padding(2);
+            buttonAgregar.Location = new Point(6, 91);
             buttonAgregar.Name = "buttonAgregar";
-            buttonAgregar.Size = new Size(149, 36);
+            buttonAgregar.Size = new Size(242, 58);
             buttonAgregar.TabIndex = 0;
             buttonAgregar.Text = "AGREGAR";
             buttonAgregar.UseVisualStyleBackColor = false;
@@ -350,10 +324,9 @@
             buttonModificar.Enabled = false;
             buttonModificar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
             buttonModificar.ForeColor = Color.White;
-            buttonModificar.Location = new Point(4, 97);
-            buttonModificar.Margin = new Padding(2);
+            buttonModificar.Location = new Point(6, 155);
             buttonModificar.Name = "buttonModificar";
-            buttonModificar.Size = new Size(149, 36);
+            buttonModificar.Size = new Size(242, 58);
             buttonModificar.TabIndex = 23;
             buttonModificar.Text = "MODIFICAR";
             buttonModificar.UseVisualStyleBackColor = false;
@@ -365,35 +338,32 @@
             panelDetallesTutor.Controls.Add(textBox_Mail);
             panelDetallesTutor.Controls.Add(textBox_IdTutor);
             panelDetallesTutor.Controls.Add(label_Mail);
-            panelDetallesTutor.Controls.Add(textBox_NombreTutor);
             panelDetallesTutor.Controls.Add(label_IdTutor);
             panelDetallesTutor.Controls.Add(label_Telefono);
             panelDetallesTutor.Controls.Add(label_NombreTutor);
             panelDetallesTutor.Controls.Add(textBox_Telefono);
             panelDetallesTutor.Controls.Add(checkBox_TutorActivo);
+            panelDetallesTutor.Controls.Add(textBox_NombreTutor);
             panelDetallesTutor.Enabled = false;
-            panelDetallesTutor.Location = new Point(223, 264);
-            panelDetallesTutor.Margin = new Padding(2);
+            panelDetallesTutor.Location = new Point(362, 422);
             panelDetallesTutor.Name = "panelDetallesTutor";
-            panelDetallesTutor.Size = new Size(769, 289);
+            panelDetallesTutor.Size = new Size(1250, 462);
             panelDetallesTutor.TabIndex = 72;
             panelDetallesTutor.Visible = false;
             // 
             // FormTutores
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1119, 764);
+            ClientSize = new Size(1818, 1222);
             Controls.Add(groupBoxAcciones);
             Controls.Add(groupBoxAcepCan);
-            Controls.Add(listBox_SelectTutores);
             Controls.Add(textBox_BuscarTutor);
             Controls.Add(panelBuscar);
             Controls.Add(panelDeco);
             Controls.Add(panelDetallesTutor);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(2);
             Name = "FormTutores";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormTutores";
