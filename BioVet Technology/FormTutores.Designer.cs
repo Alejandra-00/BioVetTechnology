@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTutores));
             listBox_SelectTutores = new ListBox();
             textBox_BuscarTutor = new TextBox();
             buttonBuscar = new Button();
             panelBuscar = new Panel();
             panelDeco = new Panel();
+            pictureBoxLogo = new PictureBox();
+            labelApartado = new Label();
             buttonCerrarTutores = new Button();
             groupBoxAcepCan = new GroupBox();
             buttonAceptar = new Button();
@@ -50,10 +53,13 @@
             buttonImprimir = new Button();
             buttonAgregar = new Button();
             buttonModificar = new Button();
+            panelDetallesTutor = new Panel();
             panelBuscar.SuspendLayout();
             panelDeco.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).BeginInit();
             groupBoxAcepCan.SuspendLayout();
             groupBoxAcciones.SuspendLayout();
+            panelDetallesTutor.SuspendLayout();
             SuspendLayout();
             // 
             // listBox_SelectTutores
@@ -61,16 +67,21 @@
             listBox_SelectTutores.FormattingEnabled = true;
             listBox_SelectTutores.Location = new Point(452, 207);
             listBox_SelectTutores.Name = "listBox_SelectTutores";
+            listBox_SelectTutores.ScrollAlwaysVisible = true;
             listBox_SelectTutores.Size = new Size(949, 164);
             listBox_SelectTutores.TabIndex = 31;
+            listBox_SelectTutores.Visible = false;
             // 
             // textBox_BuscarTutor
             // 
+            textBox_BuscarTutor.CharacterCasing = CharacterCasing.Lower;
             textBox_BuscarTutor.Location = new Point(452, 149);
             textBox_BuscarTutor.Multiline = true;
             textBox_BuscarTutor.Name = "textBox_BuscarTutor";
             textBox_BuscarTutor.Size = new Size(949, 58);
             textBox_BuscarTutor.TabIndex = 30;
+            textBox_BuscarTutor.TextChanged += textBox_BuscarTutor_TextChanged;
+            textBox_BuscarTutor.KeyDown += textBox_BuscarTutor_KeyDown;
             // 
             // buttonBuscar
             // 
@@ -98,11 +109,34 @@
             // 
             panelDeco.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panelDeco.BackColor = Color.MidnightBlue;
+            panelDeco.Controls.Add(pictureBoxLogo);
+            panelDeco.Controls.Add(labelApartado);
             panelDeco.Controls.Add(buttonCerrarTutores);
             panelDeco.Location = new Point(1, 1);
             panelDeco.Name = "panelDeco";
             panelDeco.Size = new Size(1817, 78);
             panelDeco.TabIndex = 28;
+            // 
+            // pictureBoxLogo
+            // 
+            pictureBoxLogo.Image = Properties.Resources.DESKNOVA__1_;
+            pictureBoxLogo.Location = new Point(3, 3);
+            pictureBoxLogo.Name = "pictureBoxLogo";
+            pictureBoxLogo.Size = new Size(82, 72);
+            pictureBoxLogo.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBoxLogo.TabIndex = 73;
+            pictureBoxLogo.TabStop = false;
+            // 
+            // labelApartado
+            // 
+            labelApartado.AutoSize = true;
+            labelApartado.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelApartado.ForeColor = Color.White;
+            labelApartado.Location = new Point(93, 23);
+            labelApartado.Name = "labelApartado";
+            labelApartado.Size = new Size(157, 37);
+            labelApartado.TabIndex = 29;
+            labelApartado.Text = "Apartado";
             // 
             // buttonCerrarTutores
             // 
@@ -160,103 +194,85 @@
             // label_Mail
             // 
             label_Mail.AutoSize = true;
-            label_Mail.Enabled = false;
             label_Mail.Font = new Font("Arial", 9F);
-            label_Mail.Location = new Point(375, 745);
+            label_Mail.Location = new Point(19, 328);
             label_Mail.Name = "label_Mail";
             label_Mail.Size = new Size(55, 27);
             label_Mail.TabIndex = 70;
             label_Mail.Text = "Mail";
-            label_Mail.Visible = false;
             // 
             // textBox_Mail
             // 
-            textBox_Mail.Enabled = false;
-            textBox_Mail.Location = new Point(375, 775);
+            textBox_Mail.Location = new Point(19, 358);
             textBox_Mail.Multiline = true;
             textBox_Mail.Name = "textBox_Mail";
             textBox_Mail.Size = new Size(1227, 57);
             textBox_Mail.TabIndex = 69;
-            textBox_Mail.Visible = false;
             // 
             // label_Telefono
             // 
             label_Telefono.AutoSize = true;
-            label_Telefono.Enabled = false;
             label_Telefono.Font = new Font("Arial", 9F);
-            label_Telefono.Location = new Point(375, 646);
+            label_Telefono.Location = new Point(19, 229);
             label_Telefono.Name = "label_Telefono";
             label_Telefono.Size = new Size(102, 27);
             label_Telefono.TabIndex = 68;
             label_Telefono.Text = "Teléfono";
-            label_Telefono.Visible = false;
             // 
             // textBox_Telefono
             // 
-            textBox_Telefono.Enabled = false;
-            textBox_Telefono.Location = new Point(375, 675);
+            textBox_Telefono.Location = new Point(19, 258);
             textBox_Telefono.Multiline = true;
             textBox_Telefono.Name = "textBox_Telefono";
             textBox_Telefono.Size = new Size(1227, 57);
             textBox_Telefono.TabIndex = 67;
-            textBox_Telefono.Visible = false;
             // 
             // checkBox_TutorActivo
             // 
             checkBox_TutorActivo.AutoSize = true;
-            checkBox_TutorActivo.Enabled = false;
             checkBox_TutorActivo.Font = new Font("Arial", 9F);
-            checkBox_TutorActivo.Location = new Point(375, 844);
+            checkBox_TutorActivo.Location = new Point(19, 427);
             checkBox_TutorActivo.Name = "checkBox_TutorActivo";
             checkBox_TutorActivo.Size = new Size(107, 31);
             checkBox_TutorActivo.TabIndex = 66;
             checkBox_TutorActivo.Text = "Activo";
             checkBox_TutorActivo.UseVisualStyleBackColor = true;
-            checkBox_TutorActivo.Visible = false;
             // 
             // label_NombreTutor
             // 
             label_NombreTutor.AutoSize = true;
-            label_NombreTutor.Enabled = false;
             label_NombreTutor.Font = new Font("Arial", 9F);
-            label_NombreTutor.Location = new Point(375, 541);
+            label_NombreTutor.Location = new Point(19, 124);
             label_NombreTutor.Name = "label_NombreTutor";
             label_NombreTutor.Size = new Size(97, 27);
             label_NombreTutor.TabIndex = 65;
             label_NombreTutor.Text = "Nombre";
-            label_NombreTutor.Visible = false;
             // 
             // label_IdTutor
             // 
             label_IdTutor.AutoSize = true;
-            label_IdTutor.Enabled = false;
             label_IdTutor.Font = new Font("Arial", 9F);
-            label_IdTutor.Location = new Point(375, 435);
+            label_IdTutor.Location = new Point(19, 18);
             label_IdTutor.Name = "label_IdTutor";
             label_IdTutor.Size = new Size(35, 27);
             label_IdTutor.TabIndex = 64;
             label_IdTutor.Text = "ID";
-            label_IdTutor.Visible = false;
             // 
             // textBox_NombreTutor
             // 
-            textBox_NombreTutor.Enabled = false;
-            textBox_NombreTutor.Location = new Point(375, 576);
+            textBox_NombreTutor.Location = new Point(19, 159);
             textBox_NombreTutor.Multiline = true;
             textBox_NombreTutor.Name = "textBox_NombreTutor";
             textBox_NombreTutor.Size = new Size(1227, 57);
             textBox_NombreTutor.TabIndex = 63;
-            textBox_NombreTutor.Visible = false;
             // 
             // textBox_IdTutor
             // 
-            textBox_IdTutor.Enabled = false;
-            textBox_IdTutor.Location = new Point(375, 470);
+            textBox_IdTutor.Location = new Point(19, 53);
             textBox_IdTutor.Multiline = true;
             textBox_IdTutor.Name = "textBox_IdTutor";
             textBox_IdTutor.Size = new Size(1227, 58);
             textBox_IdTutor.TabIndex = 62;
-            textBox_IdTutor.Visible = false;
             // 
             // groupBoxAcciones
             // 
@@ -264,7 +280,6 @@
             groupBoxAcciones.Controls.Add(buttonImprimir);
             groupBoxAcciones.Controls.Add(buttonAgregar);
             groupBoxAcciones.Controls.Add(buttonModificar);
-            groupBoxAcciones.Enabled = false;
             groupBoxAcciones.Location = new Point(1, 396);
             groupBoxAcciones.Name = "groupBoxAcciones";
             groupBoxAcciones.Size = new Size(250, 251);
@@ -274,7 +289,6 @@
             // buttonImprimir
             // 
             buttonImprimir.BackColor = Color.MidnightBlue;
-            buttonImprimir.Enabled = false;
             buttonImprimir.Font = new Font("Arial Black", 12F, FontStyle.Bold);
             buttonImprimir.ForeColor = Color.White;
             buttonImprimir.Location = new Point(6, 27);
@@ -287,7 +301,6 @@
             // buttonAgregar
             // 
             buttonAgregar.BackColor = Color.MidnightBlue;
-            buttonAgregar.Enabled = false;
             buttonAgregar.Font = new Font("Arial Black", 12F, FontStyle.Bold);
             buttonAgregar.ForeColor = Color.White;
             buttonAgregar.Location = new Point(6, 91);
@@ -309,6 +322,25 @@
             buttonModificar.TabIndex = 23;
             buttonModificar.Text = "MODIFICAR";
             buttonModificar.UseVisualStyleBackColor = false;
+            buttonModificar.Visible = false;
+            // 
+            // panelDetallesTutor
+            // 
+            panelDetallesTutor.Controls.Add(textBox_Mail);
+            panelDetallesTutor.Controls.Add(textBox_IdTutor);
+            panelDetallesTutor.Controls.Add(label_Mail);
+            panelDetallesTutor.Controls.Add(textBox_NombreTutor);
+            panelDetallesTutor.Controls.Add(label_IdTutor);
+            panelDetallesTutor.Controls.Add(label_Telefono);
+            panelDetallesTutor.Controls.Add(label_NombreTutor);
+            panelDetallesTutor.Controls.Add(textBox_Telefono);
+            panelDetallesTutor.Controls.Add(checkBox_TutorActivo);
+            panelDetallesTutor.Enabled = false;
+            panelDetallesTutor.Location = new Point(362, 423);
+            panelDetallesTutor.Name = "panelDetallesTutor";
+            panelDetallesTutor.Size = new Size(1249, 463);
+            panelDetallesTutor.TabIndex = 72;
+            panelDetallesTutor.Visible = false;
             // 
             // FormTutores
             // 
@@ -317,28 +349,26 @@
             ClientSize = new Size(1819, 1292);
             Controls.Add(groupBoxAcciones);
             Controls.Add(groupBoxAcepCan);
-            Controls.Add(label_Mail);
-            Controls.Add(textBox_Mail);
-            Controls.Add(label_Telefono);
-            Controls.Add(textBox_Telefono);
-            Controls.Add(checkBox_TutorActivo);
-            Controls.Add(label_NombreTutor);
-            Controls.Add(label_IdTutor);
-            Controls.Add(textBox_NombreTutor);
-            Controls.Add(textBox_IdTutor);
             Controls.Add(listBox_SelectTutores);
             Controls.Add(textBox_BuscarTutor);
             Controls.Add(panelBuscar);
             Controls.Add(panelDeco);
+            Controls.Add(panelDetallesTutor);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormTutores";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormTutores";
+            Activated += FormTutores_Activated;
             FormClosing += FormTutores_FormClosing;
             panelBuscar.ResumeLayout(false);
             panelDeco.ResumeLayout(false);
             panelDeco.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).EndInit();
             groupBoxAcepCan.ResumeLayout(false);
             groupBoxAcciones.ResumeLayout(false);
+            panelDetallesTutor.ResumeLayout(false);
+            panelDetallesTutor.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -367,5 +397,8 @@
         private Button buttonImprimir;
         private Button buttonAgregar;
         private Button buttonModificar;
+        private Panel panelDetallesTutor;
+        private Label labelApartado;
+        private PictureBox pictureBoxLogo;
     }
 }

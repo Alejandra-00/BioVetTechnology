@@ -6,7 +6,7 @@ namespace BioVet_Technology
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormIngresar());
+            Application.Run(new FormInicio());
 
             // Cuando termine el Run principal, liquida absolutamente todo en memoria
             Environment.Exit(0);
