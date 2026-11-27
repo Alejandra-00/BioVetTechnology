@@ -73,36 +73,6 @@ namespace BioVet_Technology.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BioVet_Logo {
-            get {
-                object obj = ResourceManager.GetObject("BioVet Logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap BioVet_Logo_2 {
-            get {
-                object obj = ResourceManager.GetObject("BioVet Logo 2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap DESKNOVA__1_ {
-            get {
-                object obj = ResourceManager.GetObject("DESKNOVA (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap WhatsApp_Image_2026_10_04_at_03_07_30 {
             get {
                 object obj = ResourceManager.GetObject("WhatsApp Image 2026-10-04 at 03.07.30", resourceCulture);

@@ -1,6 +1,6 @@
 ﻿namespace BioVet_Technology
 {
-    partial class FormInicio
+    partial class FormIngresar
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInicio));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormIngresar));
             menuInicio = new MenuStrip();
             cargarEstudioToolStripMenuItem = new ToolStripMenuItem();
             administrarEstudiosToolStripMenuItem = new ToolStripMenuItem();
@@ -180,7 +180,7 @@
             pictureLaboratorio.TabIndex = 2;
             pictureLaboratorio.TabStop = false;
             // 
-            // FormInicio
+            // FormIngresar
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -193,12 +193,12 @@
             IsMdiContainer = true;
             MainMenuStrip = menuInicio;
             MinimizeBox = false;
-            Name = "FormInicio";
+            Name = "FormIngresar";
             Text = "Ingresar";
             WindowState = FormWindowState.Maximized;
             FormClosing += FormIngresar_FormClosing;
-            Load += FormInicio_Load;
-            Resize += FormInicio_Resize;
+            Load += FormIngresar_Load;
+            Resize += FormIngresar_Resize;
             menuInicio.ResumeLayout(false);
             menuInicio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureLaboratorio).EndInit();

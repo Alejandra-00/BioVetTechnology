@@ -8,30 +8,19 @@ using System.Windows.Forms;
 
 namespace BioVet_Technology
 {
-    public partial class FormInicio : System.Windows.Forms.Form
+    public partial class FormIngresar : System.Windows.Forms.Form
     {
-        public FormInicio()
+        public FormIngresar()
         {
             InitializeComponent();
         }
 
-        private void FormInicio_Load(object sender, EventArgs e)
+        private void FormIngresar_Load(object sender, EventArgs e)
         {
             CentrarYSepararItemsMenu();
-
-            //Recorre todos los controles hijos del formulario, inclusive el MdiClient.
-            foreach (Control ctrl in this.Controls)
-            {
-                //Pregunta si alguno de los controles es el MdiClient e instancia un objeto de ese tipo
-                if (ctrl is MdiClient clienteMdi)
-                {
-                    // Copia el color de fondo del FormInicio
-                    clienteMdi.BackColor = this.BackColor;
-                }
-            }
         }
 
-        private void FormInicio_Resize(object sender, EventArgs e)
+        private void FormIngresar_Resize(object sender, EventArgs e)
         {
             // Recalcular posiciones cada vez que cambie el tamaño de la ventana
             CentrarYSepararItemsMenu();
@@ -92,8 +81,7 @@ namespace BioVet_Technology
 
         private void administrarTutoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string nombreApartado = ((ToolStripMenuItem)sender).Text;
-            FormTutores tutor = new FormTutores(nombreApartado);
+            FormTutores tutor = new FormTutores();
 
             tutor.ShowDialog(this);
         }
