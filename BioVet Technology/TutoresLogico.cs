@@ -1,50 +1,40 @@
 ﻿using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
-using System.Text;
 
 namespace BioVet_Technology
 {
-    public class TutoresLogico
+    public partial class Tutores
     {
-        private string Cadena => ConfigurationManager.ConnectionStrings["cadena"].ConnectionString;
-        private static TutoresLogico _instancia = null;
-
-        public static TutoresLogico Instancia
+        private static void LlenarDiccionario()
         {
-            get
+            if (diccionario == null)
+                diccionario = new Dictionary<int, Tutores>();
+
+            diccionario.Clear();
+
+            DataTable res = TraerTodos();
+
+            foreach(DataRow fila in res.Rows)
             {
-                if (_instancia == null)
-                {
-                    _instancia = new TutoresLogico();
-                }
-                return _instancia;
+                Tutores helper = new Tutores();
+                helper.id = Convert.ToInt32(fila["id_tutor"].ToString());
+                helper.Nombre = Convert.ToString(fila["nombre"]);
+                helper.Telefono = Convert.ToString(fila["telefono"]);
+                helper.Mail = Convert.ToString(fila["mail"]);
+                helper.Activo = Convert.ToString(fila["activo"]);
+
+                diccionario.Add(helper.id, helper);
             }
         }
-        public bool Guardar(Tutores obj)
+
+        private static DataTable TraerTodos()
         {
-            bool respuesta = true;
+            // Trae todos los registros de la base de datos y los ordena alfabeticamente
+            string consulta = "SELECT * FROM Tutor ORDER BY mail ASC";
 
-            using (SqliteConnection conexion = new SqliteConnection(Cadena)) // creo un objeto de conexion para la base de datos , usando la cadena de conexion que esta en el archivo App.config
-            {
-                conexion.Open();
-                string query = "INSERT INTO Tutor (nombre, telefono, mail, activo) VALUES (@nombre, @telefono, @mail, @activo)";
-                SqliteCommand cmd = new SqliteCommand(query, conexion);
-                cmd.Parameters.Add(new SqliteParameter("@nombre", obj.Nombre.ToUpper())); // toUpper convierte el texto a mayúsculas para mantener consistencia en la base de datos
-                cmd.Parameters.Add(new SqliteParameter("@telefono", obj.Telefono));
-                cmd.Parameters.Add(new SqliteParameter("@mail", obj.Mail));
-                cmd.Parameters.Add(new SqliteParameter("@activo", obj.Activo));
-                cmd.CommandType = System.Data.CommandType.Text;
-
-                if (cmd.ExecuteNonQuery() < 1)
-                {
-                    respuesta = false;
-                }
-            }
-            return respuesta;
+            return GestorConexion.ConsultarBD(consulta, null);
         }
-
     }
 }
