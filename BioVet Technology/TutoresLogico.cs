@@ -1,12 +1,14 @@
 ﻿using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 
 namespace BioVet_Technology
 {
     public partial class Tutores
     {
+        private static string Cadena = ConfigurationManager.ConnectionStrings["cadena"].ConnectionString; 
         private static void LlenarDiccionario()
         {
             if (diccionario == null)
@@ -35,6 +37,35 @@ namespace BioVet_Technology
             string consulta = "SELECT * FROM Tutor ORDER BY mail ASC";
 
             return GestorConexion.ConsultarBD(consulta, null);
+        }
+
+        public static bool Guardar(Tutores obj)
+        {
+            bool respuesta = true;
+
+            using (SqliteConnection conexion = new SqliteConnection(Cadena)) 
+            {
+                conexion.Open();
+                string query = "INSERT INTO Tutor (nombre, telefono, mail, activo) VALUES (@nombre, @telefono, @mail, @activo)";
+                SqliteCommand cmd = new SqliteCommand(query, conexion);
+                cmd.Parameters.Add(new SqliteParameter("@nombre", obj.Nombre.ToUpper()));
+                cmd.Parameters.Add(new SqliteParameter("@telefono", obj.Telefono));
+                cmd.Parameters.Add(new SqliteParameter("@mail", obj.Mail));
+                cmd.Parameters.Add(new SqliteParameter("@activo", obj.Activo));
+                cmd.CommandType = System.Data.CommandType.Text;
+
+                if (cmd.ExecuteNonQuery() < 1)
+                {
+                    respuesta = false;
+                }
+            }
+
+            if (respuesta) // Si se guardó correctamente, actualiza el diccionario
+            {
+                LlenarDiccionario();  // Actualiza el diccionario después de guardar un nuevo registro
+            }
+
+            return respuesta;
         }
     }
 }

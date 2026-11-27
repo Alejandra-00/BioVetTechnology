@@ -32,6 +32,33 @@ namespace BioVet_Technology
             checkBox_TutorActivo.Checked = tutor.Activo == "1";
         }
 
+        private void EstadoInicial()
+        {
+            textBox_IdTutor.Clear();
+            textBox_NombreTutor.Clear();
+            textBox_Telefono.Clear();
+            textBox_Mail.Clear();
+            checkBox_TutorActivo.Checked = true;
+
+            // Deshabilita la edición
+            textBox_IdTutor.Enabled = false;
+            textBox_NombreTutor.Enabled = false;
+            textBox_Telefono.Enabled = false;
+            textBox_Mail.Enabled = false;
+            checkBox_TutorActivo.Enabled = false;
+
+            // Oculta el panel completo de detalles y los botones de Aceptar/Cancelar
+            panelDetallesTutor.Visible = false;
+            groupBoxAcepCan.Visible = false;
+
+            // Muestra las acciones principales 
+            groupBoxAcciones.Enabled = true;
+            groupBoxAcciones.Visible = true;
+            buttonModificar.Visible = false;
+            textBox_BuscarTutor.Visible = true;
+
+        }
+
         private void mostrar(Control control, bool mostrar)
         {
             control.Visible = mostrar;
@@ -105,7 +132,7 @@ namespace BioVet_Technology
             {
                 listBox_SelectTutores.Items.AddRange(resultados.ToArray());
                 mostrar(listBox_SelectTutores, true);
-                
+
                 listBox_SelectTutores.BringToFront();
                 listBox_SelectTutores.SelectedIndex = 0;
             }
@@ -125,7 +152,7 @@ namespace BioVet_Technology
                 {
                     mostrar(listBox_SelectTutores, false);
                     mostrar(panelDetallesTutor, true);
-                    
+
                     cargarDatosTutor(tutorSeleccionado);
                     mostrar(buttonModificar, true);
                     activar(buttonModificar, true);
@@ -148,6 +175,78 @@ namespace BioVet_Technology
                 if (nuevoIndice >= 0 && nuevoIndice < listBox_SelectTutores.Items.Count)
                     listBox_SelectTutores.SelectedIndex = nuevoIndice;
             }
+        }
+
+        private void buttonAgregar_Click(object sender, EventArgs e)
+        {
+            groupBoxAcepCan.Text = "AGREGAR";
+            textBox_IdTutor.Enabled = false;
+            panelDetallesTutor.Visible = true;
+            panelDetallesTutor.Enabled = true;
+            groupBoxAcciones.Visible = false;
+            panelBuscar.Visible = false;
+            textBox_BuscarTutor.Visible = false;
+            textBox_BuscarTutor.Clear();
+            listBox_SelectTutores.Items.Clear();
+
+            // Muestra aceptar/cancelar
+            groupBoxAcepCan.Visible = true;
+            groupBoxAcepCan.Enabled = true;
+
+            // Limpia campos
+            textBox_IdTutor.Clear();
+            textBox_NombreTutor.Clear();
+            textBox_Telefono.Clear();
+            textBox_Mail.Clear();
+            checkBox_TutorActivo.Checked = true;
+            textBox_NombreTutor.Focus();
+        }
+
+        private void buttonAceptar_Click(object sender, EventArgs e)
+        {
+            if (groupBoxAcepCan.Text == "AGREGAR")
+            {
+                if (!camposVacios()) return; // Si hay campos vacíos, se detiene la ejecución del método y no se guarda el registro
+
+                Tutores objeto = new Tutores(); // Crea una nueva instancia de la clase Tutores para almacenar los datos ingresados por el usuario
+                objeto.Nombre = textBox_NombreTutor.Text;  // Asigna el valor del campo de texto al objeto
+                objeto.Telefono = textBox_Telefono.Text;
+                objeto.Mail = textBox_Mail.Text;
+                objeto.Activo = checkBox_TutorActivo.Checked ? "1" : "0"; // Adaptado al formato "1" / "0"
+
+                if (Tutores.Guardar(objeto)) // Llama al método Guardar de la clase Tutores para intentar guardar el objeto
+                {
+                    EstadoInicial();
+                }
+            }
+        }
+
+        private bool camposVacios()
+        {
+            if (string.IsNullOrWhiteSpace(textBox_NombreTutor.Text) ||  // Verifica si los campos de texto están vacíos o contienen solo espacios en blanco
+               string.IsNullOrWhiteSpace(textBox_Telefono.Text) ||
+               string.IsNullOrWhiteSpace(textBox_Mail.Text))
+            {
+                MessageBox.Show("Rellená todos los campos, son obligatorios.",
+                                "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox_NombreTutor.Focus();
+                return false;
+            }
+
+            if (textBox_Telefono.Text.Length < 11) // Verifica que el teléfono tenga los 10 dígitos más el espacio (ej: 2262 667587)
+            {
+                MessageBox.Show("El teléfono debe tener 10 dígitos (ej: 2262 667587).",
+                                "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox_Telefono.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            EstadoInicial();
         }
     }
 }
