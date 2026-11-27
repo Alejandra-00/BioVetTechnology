@@ -40,22 +40,20 @@ namespace BioVet_Technology
             textBox_Mail.Clear();
             checkBox_TutorActivo.Checked = true;
 
-            // Deshabilita la edición
-            textBox_IdTutor.Enabled = false;
-            textBox_NombreTutor.Enabled = false;
-            textBox_Telefono.Enabled = false;
-            textBox_Mail.Enabled = false;
-            checkBox_TutorActivo.Enabled = false;
+            activar(textBox_IdTutor, false);
+            activar(textBox_NombreTutor, false);
+            activar(textBox_Telefono, false);
+            activar(textBox_Mail, false);
+            activar(checkBox_TutorActivo, false);
 
             // Oculta el panel completo de detalles y los botones de Aceptar/Cancelar
-            panelDetallesTutor.Visible = false;
-            groupBoxAcepCan.Visible = false;
+            mostrar(panelDetallesTutor, false);
+            mostrar(groupBoxAcepCan, false);
 
-            // Muestra las acciones principales 
-            groupBoxAcciones.Enabled = true;
-            groupBoxAcciones.Visible = true;
-            buttonModificar.Visible = false;
-            textBox_BuscarTutor.Visible = true;
+            // Muestra las acciones principales y desactiva Modificar
+            activar(groupBoxAcciones, true);
+            mostrar(groupBoxAcciones, true);
+            activar(buttonModificar, false);
 
         }
 
@@ -180,19 +178,19 @@ namespace BioVet_Technology
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
             groupBoxAcepCan.Text = "AGREGAR";
-            textBox_IdTutor.Enabled = false;
-            panelDetallesTutor.Visible = true;
-            panelDetallesTutor.Enabled = true;
-            groupBoxAcciones.Visible = false;
-            panelBuscar.Visible = false;
-            textBox_BuscarTutor.Visible = false;
+            activar(textBox_IdTutor, false);
+            mostrar(panelDetallesTutor, true);
+            activar(panelDetallesTutor, true);
+            mostrar(groupBoxAcciones, false);
+            mostrar(panelBuscar, false);
+            mostrar(textBox_BuscarTutor, false);
             textBox_BuscarTutor.Clear();
             listBox_SelectTutores.Visible = false;
             listBox_SelectTutores.Items.Clear();
 
             // Muestra aceptar/cancelar
-            groupBoxAcepCan.Visible = true;
-            groupBoxAcepCan.Enabled = true;
+            mostrar(groupBoxAcepCan, true);
+            activar(groupBoxAcepCan, true);
 
             // Limpia campos
             textBox_IdTutor.Clear();
