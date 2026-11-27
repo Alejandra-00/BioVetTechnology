@@ -187,6 +187,7 @@ namespace BioVet_Technology
             panelBuscar.Visible = false;
             textBox_BuscarTutor.Visible = false;
             textBox_BuscarTutor.Clear();
+            listBox_SelectTutores.Visible = false;
             listBox_SelectTutores.Items.Clear();
 
             // Muestra aceptar/cancelar
