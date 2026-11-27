@@ -49,12 +49,23 @@ namespace BioVet_Technology
             // Oculta el panel completo de detalles y los botones de Aceptar/Cancelar
             mostrar(panelDetallesTutor, false);
             mostrar(groupBoxAcepCan, false);
+            activar(groupBoxAcepCan, false);
+            groupBoxAcepCan.Text = "";
+
+            // Muestra la barra de busqueda y oculta el listbox
+            textBox_BuscarTutor.Clear();
+            mostrar(panelBuscar, true);
+            activar(panelBuscar, true);
+            mostrar(textBox_BuscarTutor, true);
+            activar(textBox_BuscarTutor, true);
+            mostrar(listBox_SelectTutores, false);
+            listBox_SelectTutores.Items.Clear();
 
             // Muestra las acciones principales y desactiva Modificar
             activar(groupBoxAcciones, true);
             mostrar(groupBoxAcciones, true);
             activar(buttonModificar, false);
-
+            mostrar(buttonModificar, false);
         }
 
         private void mostrar(Control control, bool mostrar)
