@@ -192,14 +192,17 @@ namespace BioVet_Technology
             activar(textBox_IdTutor, false);
             mostrar(panelDetallesTutor, true);
             activar(panelDetallesTutor, true);
+            activar(textBox_NombreTutor, true);
+            activar(textBox_Telefono, true);
+            activar(textBox_Mail, true);
             mostrar(groupBoxAcciones, false);
             mostrar(panelBuscar, false);
             mostrar(textBox_BuscarTutor, false);
             textBox_BuscarTutor.Clear();
-            listBox_SelectTutores.Visible = false;
+            mostrar(listBox_SelectTutores, false);
             listBox_SelectTutores.Items.Clear();
 
-            // Muestra aceptar/cancelar
+            // Muestra y activa aceptar/cancelar
             mostrar(groupBoxAcepCan, true);
             activar(groupBoxAcepCan, true);
 
